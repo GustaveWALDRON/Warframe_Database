@@ -6,9 +6,9 @@ WHERE Rank=0 AND Dojo_Research=0 AND Market=1;
 CREATE VIEW Crit_Weapons AS
 SELECT Name, Type, Damage, Main_Damage_Type, Attack_Speed, Crit_Chance, Crit_Damage, Status_Chance
 FROM Melee_Weapon
-WHERE Crit_Damage>2;
+WHERE Crit_Damage>2 OR Crit_Chance>20;
 
 CREATE VIEW Status_Weapons AS
 SELECT Name, Type, Damage, Main_Damage_Type, Attack_Speed, Crit_Chance, Crit_Damage, Status_Chance
 FROM Melee_Weapon
-WHERE Status_Chance>20;
+WHERE Status_Chance>33.9;
