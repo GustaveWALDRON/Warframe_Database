@@ -7,3 +7,8 @@ CREATE VIEW Crit_Weapons AS
 SELECT Name, Type, Damage, Main_Damage_Type, Attack_Speed, Crit_Chance, Crit_Damage, Status_Chance
 FROM Melee_Weapon
 WHERE Crit_Damage>2;
+
+CREATE VIEW Status_Weapons AS
+SELECT Name, Type, Damage, Main_Damage_Type, Attack_Speed, Crit_Chance, Crit_Damage, Status_Chance
+FROM Melee_Weapon
+WHERE Status_Chance>20;
