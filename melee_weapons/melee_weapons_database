@@ -1,4 +1,4 @@
-"Name" "Type" "Damage" "Main_Damage_Type" "Attack_Speed" "Crit_Chance" "Crit_Damage" "Status_Chance" "Rank" "Syndicate" "Dojo_Research" "Market" "Enemy_Drop" "Alert" "Progression" "Combined" "Void_Relic" "Combine_Part"
+"Name" "Type" "Damage" "Main_Damage_Type" "Attack_Speed" "Crit_Chance" "Crit_Damage" "Status_Chance" "Rank" "Syndicate" "Dojo_Research" "Market" "Enemy_Drop" "Alert" "Progression" "Combined" "Void_Relic" "Combine_Part" "Rare_Materials"
 
 "Ack & Brunt"	"Sword & Shield"	"50.0"	"Slash"	"0.833"	"20.0"	"2.0"	"10.0"	"3"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"
 "Amphis"	"Staff"	"55.0"	"Impact"	"12.5"	"7.5"	"1.5"	"10.0"	"0"	"0"	"0"	"1"	"0"	"0"	"1"	"0"	"0"	"1"
