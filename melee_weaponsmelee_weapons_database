@@ -1,3 +1,26 @@
+CREATE TABLE "Melee_Weapon" (
+	`Name`	TEXT,
+	`Type`	TEXT,
+	`Damage`	REAL,
+	`Main_Damage_Type`	TEXT,
+	`Attack_Speed`	REAL,
+	`Crit_Chance`	REAL,
+	`Crit_Damage`	REAL,
+	`Status_Chance`	REAL,
+	`Rank`	INTEGER DEFAULT 0,
+	`Syndicate`	INTEGER DEFAULT 0,
+	`Dojo_Research`	INTEGER DEFAULT 0,
+	`Market`	INTEGER DEFAULT 0,
+	`Enemy_Drop`	INTEGER DEFAULT 0,
+	`Alert`	INTEGER DEFAULT 0,
+	`Progression`	INTEGER DEFAULT 0,
+	`Combined`	INTEGER DEFAULT 0,
+	`Void_Relic`	INTEGER DEFAULT 0,
+	`Combine_Part`	INTEGER DEFAULT 0,
+	`Rare_Materials`	INTEGER DEFAULT 0,
+	PRIMARY KEY(Name)
+)
+
 "Name" "Type" "Damage" "Main_Damage_Type" "Attack_Speed" "Crit_Chance" "Crit_Damage" "Status_Chance" "Rank" "Syndicate" "Dojo_Research" "Market" "Enemy_Drop" "Alert" "Progression" "Combined" "Void_Relic" "Combine_Part" "Rare_Materials"
 
 "Ack & Brunt"	"Sword & Shield"	"50.0"	"Slash"	"0.833"	"20.0"	"2.0"	"10.0"	"3"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"
