@@ -3,7 +3,8 @@ Warframe Databases for sorting information and help choosing according to select
 
 ## Melee Weapons table description
 - Name : Obvious
-- Type : What melee stance will be used. Dark Split will have an entry for each Stances, due to each stance having different stats
+- Type : What melee stance will be used.
+  - Dark Split will have an entry for each Stances, due to each stance having different stats
 - Damage : Total damage, important since it is that number used to calculate bonus damage
 - Main_Damage_Type : Obvious
   - If secondary damage is 50% or higher than the main damage type, it becomes **Balanced**
