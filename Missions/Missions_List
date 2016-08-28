@@ -1,0 +1,55 @@
+CREATE TABLE "Missions_List" (
+	`Name`	TEXT,
+	`Planet`	TEXT,
+	`Mission`	TEXT,
+	`Enemy`	TEXT,
+	`Min_Level`	INTEGER,
+	`Max_Level`	INTEGER,
+	`Loadout`	TEXT DEFAULT 'Ground',
+	`Tile_Set`	TEXT,
+	`Requires_Key`	INTEGER DEFAULT 0,
+	PRIMARY KEY(Name)
+)
+
+"Name" "Planet" "Mission" "Enemy" "Min_Level" "Max_Level" "Loadout" "Tile_Set" "Requires_Key"
+
+"Cambria"	"Earth"	"Spy"	"Grineer"	"2"	"4"	"Ground"	"Grineer Forest"	"0"
+"Cervantes"	"Earth"	"Sabotage"	"Grineer"	"4"	"6"	"Ground"	"Grineer Forest"	"0"
+"E Prime"	"Earth"	"Extermination"	"Grineer"	"1"	"3"	"Ground"	"Grineer Forest"	"0"
+"Mariana"	"Earth"	"Extermination"	"Grineer"	"1"	"3"	"Ground"	"Grineer Sealab"	"0"
+"Mantle"	"Earth"	"Capture"	"Grineer"	"2"	"4"	"Ground"	"Grineer Forest"	"0"
+"Lith"	"Earth"	"Defense"	"Grineer"	"1"	"6"	"Ground"	"Grineer Forest"	"0"
+"Gaia"	"Earth"	"Interception"	"Grineer"	"1"	"6"	"Ground"	"Grineer Forest"	"0"
+"Oro"	"Earth"	"Assassination"	"Grineer"	"20"	"25"	"Ground"	"Grineer Forest"	"0"
+"Everest"	"Earth"	"Excavation"	"Grineer"	"1"	"6"	"Ground"	"Grineer Forest"	"0"
+"Tikal"	"Earth"	"Excavation"	"Infested "	"6"	"16"	"Ground"	"Grineer Forest"	"0"
+"Coba"	"Earth"	"Defense"	"Infested "	"6"	"16"	"Ground"	"Grineer Forest"	"0"
+"Pacific"	"Earth"	"Interception"	"Grineer"	"6"	"9"	"Ground"	"Grineer Galleon"	"0"
+"Eurasia"	"Earth"	"Mobile Defense"	"Grineer"	"3"	"5"	"Ground"	"Grineer Forest"	"0"
+"Erpo"	"Earth"	"Mobile Defense"	"Grineer"	"1"	"6"	"Archwing"	"Free Space"	"0"
+"NULL"	"Mars"	"NULL"	"NULL"	"NULL"	"NULL"	"Ground"	"NULL"	"NULL"
+"M Prime"	"Mercury"	"Extermination"	"Infested "	"7"	"9"	"Ground"	"Grineer Asteroid"	"0"
+"Pantheon"	"Mercury"	"Extermination"	"Grineer"	"6"	"8"	"Ground"	"Grineer Galleon"	"0"
+"Caloris"	"Mercury"	"Rescue"	"Grineer"	"6"	"8"	"Ground"	"Grineer Asteroid"	"0"
+"Elion"	"Mercury"	"Capture"	"Grineer"	"7"	"9"	"Ground"	"Grineer Asteroid"	"0"
+"Suisei"	"Mercury"	"Spy"	"Grineer"	"8"	"10"	"Ground"	"Grineer Galleon"	"0"
+"Odin"	"Mercury"	"Interception"	"Grineer"	"6"	"11"	"Ground"	"Grineer Galleon"	"0"
+"Tolstoj "	"Mercury"	"Assassination"	"Grineer"	"8"	"10"	"Ground"	"Grineer Asteroid"	"0"
+"Terminus"	"Mercury"	"Sabotage"	"Infested "	"8"	"10"	"Ground"	"Grineer Galleon"	"0"
+"Lares"	"Mercury"	"Defense"	"Infested "	"6"	"11"	"Ground"	"Grineer Asteroid"	"0"
+"Apollodorus"	"Mercury"	"Survival"	"Infested "	"6"	"11"	"Ground"	"Grineer Asteroid"	"0"
+"Boethius"	"Mercury"	"Mobile Defense"	"Infested "	"8"	"10"	"Ground"	"Grineer Asteroid"	"0"
+"E Gate"	"Venus"	"Extermination"	"Corpus"	"3"	"5"	"Ground"	"Corpus Outpost"	"0"
+"Tesera"	"Venus"	"Defense"	"Corpus"	"3"	"8"	"Ground"	"Corpus Outpost"	"0"
+"Linea"	"Venus"	"Rescue"	"Corpus"	"5"	"7"	"Ground"	"Corpus Outpost"	"0"
+"Unda"	"Venus"	"Spy"	"Corpus"	"4"	"6"	"Ground"	"Corpus Outpost"	"0"
+"Kiliken"	"Venus"	"Excavation"	"Corpus"	"3"	"8"	"Ground"	"Corpus Outpost"	"0"
+"Romula"	"Venus"	"Defense"	"Infested "	"6"	"8"	"Ground"	"Corpus Outpost"	"0"
+"Aphrodite"	"Venus"	"Mobile Defense"	"Corpus"	"6"	"8"	"Ground"	"Corpus Outpost"	"0"
+"Cytherean"	"Venus"	"Interception"	"Corpus"	"3"	"8"	"Ground"	"Corpus Ship"	"0"
+"Fossa"	"Venus"	"Assassination"	"Corpus"	"6"	"8"	"Ground"	"Corpus Ship"	"0"
+"Venera"	"Venus"	"Capture"	"Corpus"	"5"	"7"	"Ground"	"Corpus Outpost"	"0"
+"V Prime"	"Venus"	"Rescue"	"Corpus"	"6"	"8"	"Ground"	"Corpus Ship"	"0"
+"Ishtar"	"Venus"	"Sabotage"	"Corpus"	"6"	"8"	"Ground"	"Corpus Ship"	"0"
+"Malva"	"Venus"	"Survival"	"Infested "	"8"	"18"	"Ground"	"Corpus Ship"	"0"
+"Montes"	"Venus"	"Extermination"	"Corpus"	"3"	"8"	"Archwing"	"Corpus Ship"	"0"
