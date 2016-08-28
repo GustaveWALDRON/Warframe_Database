@@ -1,0 +1,4 @@
+CREATE VIEW Excavation_Missions AS
+Select Name, Planet, Enemy, Min_Level, Max_Level, Tile_Set
+FROM Missions_List
+WHERE Mission='Excavation'
