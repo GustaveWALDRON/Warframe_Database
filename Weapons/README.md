@@ -6,7 +6,7 @@
   - Dark Split will have an entry for each Stances, due to each stance having different stats
 - Damage : Total damage, important since it is that number used to calculate bonus damage
 - Main_Damage_Type : Obvious
-  - If secondary damage is 50% or higher than the main damage type, it becomes **Balanced**
+  - If secondary damage is more than 50% higher than the main damage type, it becomes **Balanced**
 - Attack_Speed : Obvious
 - Crit_Chance : Obvious
 - Crit_Damage : Obvious
