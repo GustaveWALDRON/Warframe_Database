@@ -1,13 +1,11 @@
 # Weapons Description
 
-## Melee Weapons table description
+## Common table description
 - Name : Obvious
-- Type : What melee stance will be used.
-  - Dark Split will have an entry for each Stances, due to each stance having different stats
+- ...
 - Damage : Total damage, important since it is that number used to calculate bonus damage
 - Main_Damage_Type : Obvious
   - If secondary damage is more than 50% higher than the main damage type, it becomes **Balanced**
-- Attack_Speed : Obvious
 - Crit_Chance : Obvious
 - Crit_Damage : Obvious
 - Status_Chance : Obvious
@@ -23,3 +21,17 @@
 - Combine_Part : Is an ingedient of another weapon
 - Rare_Materials : Requires Forma, Argon Crystals, or Tellurium. Primes also noted here (because the void relics may become unobtainable)
 
+## Melee Weapons table description
+- Type : What melee stance will be used.
+  - Dark Split will have an entry for each Stances, due to each stance having different stats
+- Attack_Speed : Obvious
+
+## Secondary and Primary table description
+- Type
+  - **For Primaries** : Default Rifle. Otherwise Sniper, Shotgun or Bow according to Sortie rules.
+  - **For Secondaries** : Pistol, Dual Pistols or Thrown. Merely differentiating, Sorties doesn't discriminate.
+- Trigger_Type : Auto, Semi_Auto, Burst, Detonate or Charge
+- Projectile_Type : Hitscan, Projectile, Continuous or AoE
+- Fire_Rate : Obvious
+- Magazine_Size : Obvious
+- Reload_Time : Obvious
