@@ -1,0 +1,103 @@
+CREATE TABLE "Secondary_Weapons" (
+	`Name`	TEXT,
+	`Class`	TEXT,
+	`Trigger_Type`	TEXT,
+	`Projectile_Type`	TEXT,
+	`Damage`	REAL,
+	`Main_Damage_Type`	TEXT,
+	`Fire_Rate`	REAL,
+	`Magazine_Size`	INTEGER,
+	`Reload_Time`	REAL,
+	`Crit_Chance`	REAL,
+	`Crit_Damage`	REAL,
+	`Status_Chance`	REAL,
+	`Rank`	INTEGER DEFAULT 0,
+	`Syndicate`	INTEGER DEFAULT 0,
+	`Dojo_Research`	INTEGER DEFAULT 0,
+	`Market`	INTEGER DEFAULT 0,
+	`Enemy_Drop`	INTEGER DEFAULT 0,
+	`Alert`	INTEGER DEFAULT 0,
+	`Progression`	INTEGER DEFAULT 0,
+	`Combined`	INTEGER DEFAULT 0,
+	`Void_Relic`	INTEGER DEFAULT 0,
+	`Combine_Part`	INTEGER DEFAULT 0,
+	`Rare_Materials`	INTEGER DEFAULT 0,
+	PRIMARY KEY(Name)
+)
+
+"Name" "Class" "Trigger_Type" "Projectile_Type" "Damage" "Main_Damage_Type" "Fire_Rate" "Magazine_Size" "Reload_Time" "Crit_Chance" "Crit_Damage" "Status_Chance" "Rank" "Syndicate" "Dojo_Research" "Market" "Enemy_Drop" "Alert" "Progression" "Combined" "Void_Relic" "Combine_Part" "Rare_Materials"
+
+"Acrid"	"Pistol"	"Semi_Auto"	"Projectile"	"35.0"	"Toxin"	"6.7"	"15"	"1.2"	"5.0"	"2.0"	"10.0"	"7"	"1"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"1"
+"Afuris"	"Dual Pistols"	"Auto"	"Hitscan"	"15.0"	"Puncture"	"20.0"	"70"	"2.8"	"5.0"	"2.0"	"1.0"	"0"	"0"	"0"	"1"	"0"	"0"	"0"	"1"	"0"	"0"	"0"
+"Akbolto"	"Dual Pistols"	"Semi_Auto"	"Projectile"	"45.0"	"Puncture"	"10.0"	"30"	"2.6"	"5.0"	"2.0"	"7.5"	"0"	"0"	"0"	"1"	"0"	"0"	"0"	"1"	"0"	"1"	"0"
+"Akbolto Telos"	"Dual Pistols"	"Semi_Auto"	"Projectile"	"50.0"	"Puncture"	"10.0"	"30"	"2.6"	"10.0"	"2.0"	"12.5"	"6"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"
+"Akbronco"	"Dual Pistols"	"Semi_Auto"	"Hitscan"	"105.0"	"Impact"	"8.33"	"4"	"2.3"	"2.5"	"2.0"	"14.0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"1"	"0"	"0"	"0"
+"Akbronco Prime"	"Dual Pistols"	"Semi_Auto"	"Hitscan"	"105.0"	"Impact"	"8.33"	"6"	"2.3"	"2.5"	"2.0"	"30.0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"1"	"1"	"1"
+"Akjagara"	"Dual Pistols"	"Semi_Auto"	"Hitscan"	"60.0"	"Slash"	"8.33"	"24"	"2.3"	"5.0"	"2.0"	"20.0"	"3"	"0"	"0"	"1"	"0"	"0"	"0"	"1"	"0"	"0"	"0"
+"Aklato"	"Dual Pistols"	"Semi_Auto"	"Hitscan"	"18.0"	"Slash"	"8.3"	"30"	"2.4"	"2.5"	"1.5"	"1.0"	"0"	"0"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"
+"Aklex"	"Dual Pistols"	"Semi_Auto"	"Hitscan"	"70.0"	"Puncture"	"2.0"	"12"	"3.0"	"20.0"	"2.0"	"15.0"	"0"	"0"	"0"	"1"	"0"	"0"	"0"	"1"	"0"	"0"	"0"
+"Akmagnus"	"Semi_Auto"	"Semi_Auto"	"Hitscan"	"45.1"	"Balanced"	"8.3"	"16"	"3.0"	"25.0"	"2.0"	"25.0"	"0"	"0"	"0"	"1"	"0"	"0"	"0"	"1"	"0"	"0"	"0"
+"Aksomati"	"Dual Pistols"	"Auto"	"Hitscan"	"18.0"	"Balanced"	"12.5"	"70"	"1.4"	"20.0"	"3.0"	"5.0"	"6"	"0"	"1"	"0"	"0"	"0"	"0"	"1"	"0"	"0"	"1"
+"Akstiletto"	"Dual Pistols"	"Auto"	"Hitscan"	"18.0"	"Impact"	"10.0"	"28"	"1.1"	"15.0"	"1.5"	"15.0"	"2"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"1"
+"Akstiletto Prime"	"Dual Pistols"	"Auto"	"Hitscan"	"36.0"	"Impact"	"7.08"	"40"	"1.1"	"15.0"	"2.0"	"30.0"	"5"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"1"	"0"	"1"
+"Akvasto"	"Dual Pistols"	"Semi_Auto"	"Hitscan"	"50.0"	"Slash"	"10.0"	"12"	"1.8"	"15.0"	"1.5"	"5.0"	"0"	"0"	"0"	"1"	"0"	"0"	"0"	"1"	"0"	"0"	"0"
+"Akzani"	"Dual Pistols"	"Auto"	"Hitscan"	"13.0"	"Puncture"	"20.0"	"100"	"2.0"	"5.0"	"2.0"	"5.0"	"0"	"0"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"1"
+"Angstrum"	"Pistol"	"Charge"	"AoE"	"425.0"	"Blast"	"2.0"	"3"	"2.5"	"5.0"	"2.0"	"10.0"	"4"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"
+"Atomos"	"Pistol"	"Auto"	"Continuous"	"50.0"	"Fire"	"5.0"	"50"	"2.0"	"5.0"	"1.5"	"10.0"	"4"	"0"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"1"	"1"
+"Azima"	"Pistol"	"Auto"	"Hitscan"	"20.0"	"Slash"	"10.0"	"75"	"1.4"	"10.0"	"2.0"	"10.0"	"0"	"0"	"0"	"0"	"0"	"0"	"1"	"0"	"0"	"0"	"0"
+"Ballistica"	"Pistol"	"Charge"	"Projectile"	"100.0"	"Puncture"	"3.33"	"6"	"2.0"	"15.0"	"1.5"	"10.0"	"2"	"0"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"
+"Ballistica Rakta"	"Pistol"	"Charge"	"Projectile"	"300.0"	"Puncture"	"3.33"	"20"	"2.0"	"20.0"	"1.5"	"10.0"	"6"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"
+"Bolto"	"Pistol"	"Semi_Auto"	"Projectile"	"45.0"	"Puncture"	"6.8"	"15"	"1.3"	"5.0"	"2.0"	"7.5"	"0"	"1"	"0"	"1"	"0"	"0"	"0"	"1"	"0"	"1"	"0"
+"Brakk"	"Pistol"	"Semi_Auto"	"Hitscan"	"150.0"	"Balanced"	"5.0"	"5"	"1.0"	"15.0"	"2.0"	"10.0"	"0"	"0"	"0"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"
+"Bronco"	"Pistol"	"Semi_Auto"	"Hitscan"	"105.0"	"Impact"	"5.0"	"2"	"1.0"	"2.5"	"2.0"	"14.0"	"0"	"0"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"1"	"0"
+"Bronco Prime"	"Pistol"	"Semi_Auto"	"Hitscan"	"140.0"	"Impact"	"4.2"	"4"	"2.0"	"2.5"	"1.5"	"17.5"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"1"	"1"	"1"
+"Castanas"	"Thrown"	"Detonate"	"AoE"	"100.0"	"Electricity"	"5.0"	"2"	"1.0"	"5.0"	"1.5"	"10.0"	"3"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"1"
+"Castanas Sancti"	"Thrown"	"Detonate"	"AoE"	"115.0"	"Electricity"	"5.0"	"2"	"1.0"	"10.0"	"1.5"	"15.0"	"6"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"
+"Cestra"	"Pistol"	"Auto"	"Projectile"	"25.0"	"Puncture"	"8.3"	"60"	"2.0"	"2.5"	"1.5"	"5.0"	"4"	"0"	"0"	"0"	"0"	"0"	"1"	"0"	"0"	"1"	"0"
+"Despair"	"Thrown"	"Auto"	"Projectile"	"55.0"	"Puncture"	"3.3"	"10"	"0.8"	"2.5"	"1.5"	"2.5"	"0"	"0"	"0"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"
+"Detron"	"Pistol"	"Semi_Auto"	"Projectile"	"105.0"	"Radiation"	"3.3"	"5"	"1.0"	"2.5"	"1.5"	"10.0"	"0"	"0"	"0"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"1"
+"Detron Mara"	"Pistol"	"Semi_Auto"	"Projectile"	"105.0"	"Radiation"	"4.2"	"8"	"1.0"	"2.5"	"1.5"	"10.0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"
+"Dual Cestra"	"Dual Pistols"	"Auto"	"Projectile"	"25.0"	"Puncture"	"12.5"	"100"	"3.5"	"2.5"	"1.5"	"5.0"	"4"	"0"	"1"	"0"	"0"	"0"	"0"	"1"	"0"	"0"	"0"
+"Dual Cestras Secura"	"Dual Pistols"	"Auto"	"Projectile"	"30.0"	"Puncture"	"12.5"	"100"	"3.5"	"5.0"	"1.5"	"7.5"	"6"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"
+"Dual Toxocyst"	"Dual Pistols"	"Semi_Auto"	"Hitscan"	"70.0"	"Puncture"	"1.0"	"12"	"2.3"	"5.0"	"2.0"	"35.0"	"8"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"1"
+"Embolist"	"Pistol"	"Auto"	"Continuous"	"18.5"	"Toxin"	"10.0"	"100"	"1.5"	"2.5"	"2.0"	"10.0"	"8"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"1"
+"Furis"	"Pistol"	"Auto"	"Hitscan"	"15.0"	"Puncture"	"10.0"	"35"	"1.4"	"5.0"	"2.0"	"1.0"	"0"	"1"	"0"	"1"	"0"	"0"	"1"	"0"	"0"	"1"	"0"
+"Furis MK1"	"Pistol"	"Auto"	"Hitscan"	"13.0"	"Puncture"	"8.3"	"35"	"1.4"	"5.0"	"2.0"	"1.0"	"0"	"1"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"
+"Gammacor"	"Pistol"	"Auto"	"Continuous"	"50.0"	"Magnetic"	"5.0"	"100"	"2.0"	"5.0"	"1.5"	"5.0"	"2"	"0"	"0"	"1"	"0"	"0"	"1"	"0"	"0"	"1"	"1"
+"Gammacor Synoid"	"Pistol"	"Auto"	"Continuous"	"28.0"	"Magnetic"	"15.0"	"150"	"2.0"	"10.0"	"2.0"	"20.0"	"6"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"
+"Hikou"	"Thrown"	"Auto"	"Projectile"	"25.0"	"Puncture"	"6.7"	"20"	"0.8"	"2.5"	"1.5"	"2.5"	"2"	"0"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"1"	"0"
+"Hikou Prime"	"Thrown"	"Auto"	"Projectile"	"32.0"	"Puncture"	"58.0"	"26"	"0.5"	"2.5"	"1.5"	"15.0"	"4"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"1"	"0"	"1"
+"Kohmak"	"Pistol"	"Auto"	"Hitscan"	"16.0"	"Slash"	"5.0"	"40"	"2.0"	"5.0"	"2.0"	"10.0"	"3"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"1"	"1"
+"Kraken"	"Pistol"	"Burst"	"Hitscan"	"45.0"	"Impact"	"22.0"	"14"	"2.5"	"5.0"	"2.0"	"10.0"	"0"	"0"	"0"	"1"	"0"	"0"	"1"	"0"	"0"	"1"	"0"
+"Kulstar"	"Pistol"	"Detonate"	"AoE"	"375.0"	"Blast"	"2.0"	"3"	"2.0"	"5.0"	"2.0"	"10.0"	"4"	"0"	"0"	"1"	"0"	"0"	"0"	"1"	"0"	"0"	"1"
+"Kunai"	"Thrown"	"Auto"	"Projectile"	"45.0"	"Puncture"	"3.3"	"10"	"0.8"	"2.5"	"1.5"	"2.5"	"0"	"0"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"1"	"0"
+"Kunai MK1"	"Thrown"	"Auto"	"Projectile"	"40.0"	"Puncture"	"3.3"	"10"	"0.8"	"5.0"	"2.0"	"2.5"	"0"	"0"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"
+"Lato"	"Pistol"	"Semi_Auto"	"Hitscan"	"18.0"	"Slash"	"6.7"	"15"	"1.0"	"5.0"	"1.8"	"1.0"	"0"	"0"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"1"	"0"
+"Lato Prime"	"Pistol"	"Semi_Auto"	"Hitscan"	"21.0"	"Slash"	"6.7"	"15"	"1.2"	"5.0"	"2.0"	"5.0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"1"
+"Lato Vandal"	"Pistol"	"Semi_Auto"	"Hitscan"	"20.0"	"Slash"	"5.0"	"15"	"1.2"	"7.5"	"2.0"	"5.0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"
+"Lex"	"Pistol"	"Semi_Auto"	"Hitscan"	"70.0"	"Puncture"	"1.1"	"6"	"2.35"	"15.0"	"2.0"	"10.0"	"0"	"0"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"1"	"0"
+"Lex Prime"	"Pistol"	"Semi_Auto"	"Hitscan"	"150.0"	"Puncture"	"2.1"	"8"	"2.3"	"25.0"	"2.0"	"25.0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"1"	"0"	"1"
+"Magnus"	"Semi_Auto"	"Semi_Auto"	"Hitscan"	"45.1"	"Balanced"	"5.8"	"8"	"2.0"	"20.0"	"2.0"	"20.0"	"0"	"0"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"1"	"0"
+"Marelok"	"Pistol"	"Semi_Auto"	"Hitscan"	"160.0"	"Balanced"	"2.0"	"6"	"1.7"	"15.0"	"1.5"	"30.0"	"5"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"1"
+"Marelok Vaykor"	"Pistol"	"Semi_Auto"	"Hitscan"	"160.0"	"Impact"	"2.0"	"10"	"1.7"	"20.0"	"1.5"	"35.0"	"6"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"
+"Nukor"	"Pistol"	"Auto"	"Continuous"	"32.0"	"Radiation"	"5.0"	"50"	"2.0"	"1.0"	"4.0"	"20.0"	"4"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"1"
+"Pyrana"	"Pistol"	"Semi_Auto"	"Hitscan"	"108.0"	"Slash"	"4.2"	"5"	"2.0"	"20.0"	"2.0"	"10.0"	"3"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"1"
+"Seer"	"Pistol"	"Semi_Auto"	"Projectile"	"84.0"	"Balanced"	"2.0"	"8"	"2.8"	"0.0"	"0.0"	"10.0"	"0"	"0"	"0"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"
+"Sicarus"	"Pistol"	"Burst"	"Hitscan"	"30.0"	"Impact"	"2.5"	"15"	"2.0"	"10.0"	"2.0"	"2.5"	"1"	"0"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"
+"Sicarus Prime"	"Pistol"	"Burst"	"Hitscan"	"32.0"	"Balanced"	"5.0"	"21"	"2.0"	"10.0"	"1.5"	"10.0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"1"
+"Sonicor"	"Pistol"	"Semi_Auto"	"Projectile"	"50.0"	"Impact"	"1.25"	"15"	"3.0"	"10.0"	"2.0"	"0.0"	"2"	"0"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"1"
+"Spectra"	"Pistol"	"Auto"	"Continuous"	"30.0"	"Puncture"	"5.0"	"80"	"2.0"	"5.0"	"2.0"	"20.0"	"4"	"1"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"1"
+"Spira"	"Thrown"	"Auto"	"Projectile"	"55.0"	"Puncture"	"2.5"	"20"	"1.0"	"25.0"	"2.0"	"5.0"	"1"	"0"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"
+"Spira Prime"	"Thrown"	"Auto"	"Projectile"	"47.0"	"Puncture"	"3.33"	"12"	"0.75"	"30.0"	"2.5"	"10.0"	"3"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"1"	"0"	"1"
+"Staticor"	"Thrown"	"Charge"	"Projectile"	"35.0"	"Radiation"	"3.5"	"45"	"1.5"	"10.0"	"2.0"	"25.0"	"5"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"1"
+"Stug"	"Pistol"	"Charge"	"AoE"	"156.0"	"Corrosive"	"8.33"	"20"	"2.0"	"5.0"	"1.5"	"0.0"	"2"	"0"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"
+"Talons"	"Thrown"	"Detonate"	"AoE"	"100.0"	"Blast"	"5.0"	"4"	"1.0"	"5.0"	"1.5"	"10.0"	"5"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"1"
+"Twin Grakatas"	"Dual Pistols"	"Auto"	"Hitscan"	"20.0"	"Balanced"	"20.0"	"120"	"3.0"	"25.0"	"2.0"	"10.0"	"0"	"0"	"0"	"1"	"0"	"0"	"0"	"1"	"0"	"0"	"1"
+"Twin Gremlin"	"Dual Pistols"	"Auto"	"Projectile"	"30.0"	"Balanced"	"5.0"	"30"	"2.0"	"10.0"	"1.5"	"10.0"	"0"	"0"	"0"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"
+"Twin Kohmak"	"Dual Pistols"	"Auto"	"Hitscan"	"16.0"	"Slash"	"8.0"	"80"	"2.0"	"5.0"	"2.0"	"10.0"	"6"	"0"	"0"	"0"	"1"	"0"	"0"	"1"	"0"	"0"	"1"
+"Twin Viper"	"Dual Pistols"	"Auto"	"Hitscan"	"16.0"	"Impact"	"25.0"	"28"	"2.0"	"15.0"	"1.5"	"1.0"	"0"	"0"	"0"	"1"	"0"	"0"	"0"	"1"	"0"	"0"	"0"
+"Twin Viper Wraith"	"Dual Pistols"	"Auto"	"Hitscan"	"18.0"	"Impact"	"25.0"	"40"	"2.0"	"18.0"	"2.0"	"5.0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"1"
+"Tysis"	"Pistol"	"Semi_Auto"	"Projectile"	"35.0"	"Corrosive"	"2.5"	"15"	"1.2"	"2.5"	"1.5"	"50.0"	"4"	"0"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"
+"Vasto"	"Pistol"	"Semi_Auto"	"Hitscan"	"50.0"	"Slash"	"5.0"	"6"	"1.0"	"15.0"	"1.5"	"5.0"	"0"	"0"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"1"	"0"
+"Vasto Prime"	"Pistol"	"Semi_Auto"	"Hitscan"	"60.0"	"Slash"	"5.4"	"6"	"1.0"	"15.0"	"2.0"	"15.0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"1"	"0"	"1"
+"Viper"	"Pistol"	"Auto"	"Hitscan"	"16.0"	"Impact"	"14.4"	"14"	"1.1"	"15.0"	"1.5"	"1.0"	"0"	"1"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"1"	"0"
