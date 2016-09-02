@@ -19,7 +19,7 @@
 - Combined : Requires an another weapon as an ingredient
 - Void_Relic : Currently available Primes only
 - Combine_Part : Is an ingredient of another weapon
-- Rare_Materials : Requires Forma, Argon Crystals, or Tellurium. Primes also noted here (because the void relics may become unobtainable)
+- Rare_Materials : Requires Forma, Argon Crystals, Tellurium or Nitain. Primes also noted here (because the void relics may become unobtainable), Sortie weapons not noted
 
 ## Melee Weapons table description
 - Type : What melee stance will be used.
