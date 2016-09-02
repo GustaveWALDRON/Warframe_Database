@@ -34,7 +34,8 @@
 - Projectile_Type : Hitscan, Project ile, Continuous or AoE
 - Fire_Rate : Obvious
 - Magazine_Size : Obvious
+  - Bows have no magazine size (except Attica and Zhuge)
 - Reload_Time : Obvious
 
 ## Miscellaneous notes
-- Bows have no magazine size (except Attica and Zhuge)
+Data mostly taken for the Wikia, but the game has precedence
