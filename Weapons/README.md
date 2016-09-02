@@ -18,7 +18,7 @@
 - Progression : Obtainable through Quests and Junctions
 - Combined : Requires an another weapon as an ingredient
 - Void_Relic : Currently available Primes only
-- Combine_Part : Is an ingedient of another weapon
+- Combine_Part : Is an ingredient of another weapon
 - Rare_Materials : Requires Forma, Argon Crystals, or Tellurium. Primes also noted here (because the void relics may become unobtainable)
 
 ## Melee Weapons table description
