@@ -31,7 +31,7 @@
   - **For Primaries** : Default Rifle. Otherwise Sniper, Shotgun or Bow according to Sortie rules.
   - **For Secondaries** : Pistol, Dual Pistols or Thrown. Merely differentiating, Sorties doesn't discriminate.
 - Trigger_Type : Auto, Semi_Auto, Burst, Detonate or Charge
-- Projectile_Type : Hitscan, Project ile, Continuous or AoE
+- Projectile_Type : Hitscan, Projectile, Continuous or AoE
 - Fire_Rate : Obvious
 - Magazine_Size : Obvious
   - Bows have no magazine size (except Attica and Zhuge)
