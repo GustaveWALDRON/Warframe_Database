@@ -37,4 +37,4 @@
 - Reload_Time : Obvious
 
 ## Miscellaneous notes
-- Bows have no magazine size (except Attica)
+- Bows have no magazine size (except Attica and Zhuge)
