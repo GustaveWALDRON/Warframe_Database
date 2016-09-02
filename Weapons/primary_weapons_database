@@ -1,0 +1,84 @@
+CREATE TABLE "Primary_Weapons" (
+	`Name`	TEXT,
+	`Class`	TEXT DEFAULT 'Rifle',
+	`Trigger_Type`	TEXT,
+	`Projectile_Type`	TEXT,
+	`Damage`	REAL,
+	`Main_Damage_Type`	TEXT,
+	`Fire_Rate`	REAL,
+	`Magazine_Size`	INTEGER,
+	`Reload_Time`	REAL,
+	`Crit_Chance`	REAL,
+	`Crit_Damage`	REAL,
+	`Status_Chance`	REAL,
+	`Rank`	INTEGER DEFAULT 0,
+	`Syndicate`	INTEGER DEFAULT 0,
+	`Dojo_Research`	INTEGER DEFAULT 0,
+	`Market`	INTEGER DEFAULT 0,
+	`Enemy_Drop`	INTEGER DEFAULT 0,
+	`Alert`	INTEGER DEFAULT 0,
+	`Progression`	INTEGER DEFAULT 0,
+	`Combined`	INTEGER DEFAULT 0,
+	`Void_Relic`	INTEGER DEFAULT 0,
+	`Combined_Part`	INTEGER DEFAULT 0,
+	`Rare_Materials`	INTEGER DEFAULT 0,
+	PRIMARY KEY(`Name`)
+)
+
+"Name" "Class" "Trigger_Type" "Projectile_Type" "Damage" "Main_Damage_Type" "Fire_Rate" "Magazine_Size" "Reload_Time" "Crit_Chance" "Crit_Damage" "Status_Chance" "Rank" "Syndicate" "Dojo_Research" "Market" "Enemy_Drop" "Alert" "Progression" "Combined" "Void_Relic" "Combine_Part" "Rare_Materials"
+
+"Amprex"	"Rifle"	"Auto"	"Continuous"	"7.5"	"Electricity"	"20.0"	"100"	"2.7"	"50.0"	"2.0"	"20.0"	"5"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"1"
+"Attica"	"Bow"	"Auto"	"Projectile"	"125.1"	"Puncture"	"3.3"	"16"	"2.8"	"20.0"	"1.5"	"10.0"	"0"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"1"
+"Boar"	"Shotgun"	"Auto"	"Hitscan"	"176.0"	"Balanced"	"4.17"	"20"	"2.7"	"10.0"	"1.5"	"20.0"	"2"	"0"	"0"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"
+"Boar Prime"	"Shotgun"	"Auto"	"Hitscan"	"184.0"	"Impact"	"4.67"	"20"	"2.8"	"15.0"	"2.0"	"30.0"	"2"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"1"
+"Boltor"	"Rifle"	"Auto"	"Hitscan"	"25.0"	"Puncture"	"8.75"	"60"	"2.6"	"5.0"	"1.5"	"10.0"	"2"	"0"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"
+"Boltor Prime"	"Rifle"	"Auto"	"Hitscan"	"55.0"	"Puncture"	"10.0"	"60"	"2.4"	"5.0"	"2.0"	"10.0"	"2"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"1"
+"Boltor Telos"	"Rifle"	"Auto"	"Hitscan"	"50.0"	"Puncture"	"9.33"	"90"	"2.4"	"5.0"	"2.0"	"7.5"	"12"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"
+"Braton"	"Rifle"	"Auto"	"Hitscan"	"20.0"	"Balanced"	"8.8"	"45"	"2.0"	"10.0"	"1.5"	"5.0"	"0"	"0"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"
+"Braton MK1"	"Rifle"	"Auto"	"Hitscan"	"18.0"	"Slash"	"7.5"	"60"	"2.0"	"8.0"	"1.5"	"5.0"	"0"	"0"	"0"	"1"	"0"	"0"	"1"	"0"	"0"	"0"	"0"
+"Braton Prime"	"Rifle"	"Auto"	"Hitscan"	"35.0"	"Balanced"	"9.6"	"75"	"2.2"	"10.0"	"2.0"	"20.0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"1"	"0"	"1"
+"Braton Vandal"	"Rifle"	"Auto"	"Hitscan"	"35.1"	"Balanced"	"7.5"	"50"	"1.8"	"10.0"	"2.0"	"10.0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"
+"Burston"	"Rifle"	"Burst"	"Hitscan"	"30.0"	"Balanced"	"25.0"	"45"	"2.0"	"5.0"	"1.5"	"10.0"	"0"	"0"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"
+"Burston Prime"	"Rifle"	"Burst"	"Hitscan"	"39.0"	"Balanced"	"25.0"	"45"	"2.0"	"5.0"	"1.5"	"15.0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"1"	"0"	"1"
+"Buzlok"	"Rifle"	"Auto"	"Projectile"	"45.0"	"Impact"	"6.3"	"75"	"3.0"	"10.0"	"2.0"	"10.0"	"5"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"1"
+"Cernos"	"Bow"	"Charge"	"Projectile"	"200.0"	"Impact"	"1.0"	"0"	"0.6"	"35.0"	"2.0"	"10.0"	"0"	"0"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"1"	"0"
+"Cernos Mutalist"	"Bow"	"Charge"	"Projectile"	"225.0"	"Impact"	"1.0"	"0"	"0.6"	"15.0"	"1.5"	"45.0"	"5"	"0"	"0"	"1"	"0"	"0"	"0"	"1"	"0"	"0"	"0"
+"Cernos Rakta"	"Bow"	"Charge"	"Projectile"	"250.0"	"Impact"	"1.0"	"0"	"0.6"	"35.0"	"2.0"	"15.0"	"12"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"
+"Convectrix"	"Rifle"	"Auto"	"Continuous"	"100.0"	"Slash"	"3.0"	"90"	"2.0"	"10.0"	"2.0"	"25.0"	"3"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"1"
+"Daikyu"	"Bow"	"Charge"	"Projectile"	"350.0"	"Puncture"	"1.0"	"0"	"0.6"	"15.0"	"2.0"	"45.0"	"0"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"1"
+"Dera"	"Rifle"	"Auto"	"Projectile"	"22.0"	"Puncture"	"11.3"	"45"	"2.4"	"2.5"	"1.5"	"10.0"	"4"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"1"
+"Dera Vandal"	"Rifle"	"Auto"	"Projectile"	"31.1"	"Puncture"	"11.3"	"60"	"2.4"	"5.0"	"2.0"	"15.0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"
+"Drakgoon"	"Shotgun"	"Charge"	"Projectile"	"900.0"	"Slash"	"3.0"	"7"	"2.3"	"7.5"	"2.0"	"10.0"	"3"	"0"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"
+"Dread"	"Bow"	"Charge"	"Projectile"	"200.0"	"Slash"	"1.0"	"0"	"0.7"	"50.0"	"2.0"	"20.0"	"0"	"0"	"0"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"
+"Flux Rifle"	"Rifle"	"Auto"	"Continuous"	"22.5"	"Slash"	"10.0"	"200"	"2.0"	"5.0"	"2.0"	"25.0"	"6"	"0"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"1"
+"Glaxion"	"Rifle"	"Auto"	"Continuous"	"12.5"	"Cold"	"20.0"	"300"	"1.5"	"5.0"	"2.0"	"35.0"	"6"	"0"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"1"
+"Gorgon"	"Rifle"	"Auto"	"Hitscan"	"25.0"	"Impact"	"12.5"	"90"	"4.2"	"10.0"	"1.5"	"5.0"	"3"	"0"	"0"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"
+"Gorgon Prisma"	"Rifle"	"Auto"	"Hitscan"	"25.0"	"Impact"	"14.2"	"120"	"3.0"	"15.0"	"2.0"	"5.0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"
+"Gorgon Wraith"	"Rifle"	"Auto"	"Hitscan"	"27.0"	"Impact"	"13.3"	"90"	"3.0"	"10.0"	"1.5"	"15.0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"
+"Grinlok"	"Rifle"	"Semi_Auto"	"Hitscan"	"120.0"	"Balanced"	"1.67"	"6"	"2.1"	"15.0"	"2.0"	"35.0"	"5"	"1"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"1"
+"Harpak"	"Rifle"	"Burst"	"Hitscan"	"50.0"	"Puncture"	"6.0"	"45"	"2.0"	"15.0"	"2.0"	"10.0"	"3"	"0"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"1"
+"Hek"	"Shotgun"	"Semi_Auto"	"Hitscan"	"525.0"	"Puncture"	"2.14"	"4"	"2.0"	"10.0"	"2.0"	"25.0"	"4"	"1"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"
+"Hek Vaykor"	"Shotgun"	"Semi_Auto"	"Hitscan"	"525.0"	"Puncture"	"3.0"	"8"	"2.3"	"25.0"	"2.0"	"25.0"	"12"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"
+"Hind"	"Rifle"	"Burst"	"Hitscan"	"30.0"	"Slash"	"14.0"	"65"	"2.0"	"5.0"	"1.5"	"10.0"	"0"	"0"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"
+"Ignis"	"Rifle"	"Auto"	"Continuous"	"27.0"	"Fire"	"10.0"	"150"	"2.0"	"5.0"	"2.0"	"25.0"	"4"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"1"
+"Karak"	"Rifle"	"Auto"	"Hitscan"	"27.0"	"Balanced"	"11.7"	"30"	"2.0"	"2.5"	"1.5"	"7.5"	"0"	"0"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"
+"Karak Wraith"	"Rifle"	"Auto"	"Hitscan"	"30.0"	"Balanced"	"11.7"	"60"	"2.0"	"5.0"	"2.0"	"15.0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"
+"Kohm"	"Shotgun"	"Auto"	"Hitscan"	"30.0"	"Slash"	"3.7"	"245"	"2.0"	"10.0"	"2.0"	"25.0"	"2"	"0"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"1"
+"Lanka"	"Sniper"	"Charge"	"Projectile"	"525"	"Electricity"	"1"	"10"	"2"	"25"	"2"	"25"	"7"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"1"
+"Latron"	"Rifle"	"Semi_Auto"	"Hitscan"	"55"	"Puncture"	"4.2"	"15"	"2.4"	"10"	"2"	"10"	"0"	"0"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"
+"Latron Wraith"	"Rifle"	"Semi_Auto"	"Hitscan"	"55"	"Puncture"	"5.4"	"15"	"2.4"	"25"	"2.5"	"20"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"
+"Latrion Prime"	"Rifle"	"Semi_Auto"	"Hitscan"	"85"	"Puncture"	"4.2"	"15"	"2.4"	"15"	"2.5"	"25"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"1"
+"Miter"	"Rifle"	"Charge"	"Projectile"	"250"	"Slash"	"2.5"	"20"	"2"	"0"	"0"	"50"	"4"	"0"	"0"	"0"	"1"	"0"	"0"	"0"	"0"	"1"	"0"
+"Ogris"	"Rifle"	"Charge"	"AoE"	"650"	"Blast"	"1"	"5"	"2.5"	"5"	"2"	"10"	"6"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"1"
+"Opticor"	"Rifle"	"Charge"	"Hitscan"	"1000"	"Puncture"	"1"	"5"	"2"	"15"	"2"	"15"	"6"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"1"
+"Panthera"	"Rifle"	"Semi_Auto"	"Projectile"	"100"	"Slash"	"1.7"	"60"	"2"	"0"	"0"	"10"	"4"	"0"	"0"	"1"	"0"	"0"	"0"	"1"	"0"	"0"	"0"
+"Paracyst"	"Rifle"	"Burst"	"Projectile"	"25"	"Toxin"	"8.3"	"60"	"2"	"5"	"2"	"15"	"2"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"1"
+"Paris"	"Bow"	"Charge"	"Projectile"	"180"	"Puncture"	"1"	"0"	"0.7"	"30"	"2"	"10"	"0"	"0"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"
+"Paris MK1"	"Bow"	"Charge"	"Projectile"	"120"	"Puncture"	"1"	"0"	"0.6"	"30"	"2"	"10"	"0"	"0"	"0"	"1"	"0"	"0"	"1"	"0"	"0"	"0"	"0"
+"Paris Prime"	"Bow"	"Charge"	"Projectile"	"200"	"Puncture"	"1"	"0"	"0.7"	"45"	"2"	"20"	"4"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"1"	"0"	"1"
+"Penta"	"Rifle"	"Semi_Auto"	"Detonate"	"425"	"Blast"	"1"	"5"	"2.5"	"10"	"2"	"10"	"6"	"0"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"
+"Penta Secura"	"Rifle"	"Semi_Auto"	"Detonate"	"450"	"Blast"	"2"	"7"	"2.5"	"10"	"2"	"10"	"12"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"
+"Phage"	"Shotgun"	"Auto"	"Continuous"	"330"	"Viral"	"1"	"40"	"2"	"10"	"2"	"15"	"6"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"1"
+"Quanta"	"Rifle"	"Auto"	"Continuous"	"220"	"Electricity"	"1"	"60"	"2"	"10"	"2"	"10"	"4"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"1"
+"Quanta Mutalist"	"Rifle"	"Auto"	"Projectile"	"25"	"Puncture"	"10"	"60"	"3"	"2.5"	"1.5"	"15"	"2"	"0"	"1"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"1"
+"Quanta Vandal"	"Rifle"	"Auto"	"Continuous"	"220"	"Electricity"	"1"	"90"	"2"	"10"	"2"	"25"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"	"0"
