@@ -31,11 +31,13 @@
   - **For Primaries** : Default Rifle. Otherwise Sniper, Shotgun or Bow according to Sortie rules.
   - **For Secondaries** : Pistol, Dual Pistols or Thrown. Merely differentiating, Sorties doesn't discriminate.
 - Trigger_Type : Auto, Semi_Auto, Burst, Detonate or Charge
+  - Duplex_Auto for Tigris shotguns.
 - Projectile_Type : Hitscan, Projectile, Continuous or AoE
 - Fire_Rate : Obvious
 - Magazine_Size : Obvious
-  - Bows have no magazine size (except Attica and Zhuge)
+  - Bows have no magazine size, or rather the quiver (max ammo) is the magazine size (except for Attica and Zhuge)
 - Reload_Time : Obvious
 
 ## Miscellaneous notes
-Data mostly taken for the Wikia, but the game has precedence
+- Data mostly taken for the Wikia, but the game has precedence
+- Plenty of specific mechanics (like Sniper scope bonuses, continuous weapons range...) not listed
