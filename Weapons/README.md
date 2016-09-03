@@ -12,7 +12,7 @@
 - Rank : Mastery Rank requirement
 - Syndicate : If it can or has a Syndicate bonus effect (Mod or Innate). Cephalon Simaris does not count.
 - Dojo_Research : Requires Research in a Clan Dojo to obtain Blueprint
-- Market : Blueprint available in Market, or completely built and purchasable from the Arsenal for tutorial weapons.
+- Market : Blueprint available in Market, or completely built and purchasable from the Arsenal.
 - Enemy_Drop : Parts/Blueprint comes from a specific enemy
 - Alert : Obtainable through Alerts
 - Progression : Obtainable through Quests and Junctions
