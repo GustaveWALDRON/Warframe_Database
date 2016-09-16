@@ -1,3 +1,5 @@
+Warframe melee weapon table
+
 CREATE TABLE "Melee_Weapon" (
 	`Name`	TEXT,
 	`Type`	TEXT,
