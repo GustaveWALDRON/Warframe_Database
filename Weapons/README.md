@@ -29,7 +29,7 @@
 ## Secondary and Primary table description
 - Type
   - **For Primaries** : Default Rifle. Otherwise Sniper, Shotgun or Bow according to Sortie rules.
-  - **For Secondaries** : Pistol, Dual Pistols or Thrown. Merely differentiating, Sorties doesn't discriminate.
+  - **For Secondaries** : Pistol, Dual Pistols or Thrown. Difference only matters regarding to Mesa passive, Sorties doesn't discriminate.
 - Trigger_Type : Auto, Semi_Auto, Burst, Detonate or Charge
   - Duplex_Auto for Tigris shotguns.
 - Projectile_Type : Hitscan, Projectile, Continuous or AoE
