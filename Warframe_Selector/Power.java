@@ -34,8 +34,8 @@ public class Power {
 	}
 	
 	void PrintAugment(){
-		System.out.println("   "+this.Augment+" "+this.AugmentTags);
-		System.out.println("   "+this.AugmentDescription);
+		System.out.println("   (+) "+this.Augment+" "+this.AugmentTags);
+		System.out.println("       "+this.AugmentDescription);
 	}
 	
 	void PowerAddTags(String Tag){  //add more if necessary
