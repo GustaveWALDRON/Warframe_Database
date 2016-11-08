@@ -1,82 +1,591 @@
 package data;
 
-import java.util.*;
+public class Main { //For entering all the data ??
 
-public class Warframe {
-	String Name;
-	String PassiveName;
-	String PassiveDescription;
-	ArrayList<String> Tags=new ArrayList<String>();
-	Power p1; //tab possible or not ?
-	Power p2;
-	Power p3;
-	Power p4;
-	
-	public Warframe(String Name, Power p1, Power p2, Power p3, Power p4,
-					String PassiveName, String PassiveDescription){
-		this.Name=Name;
-		this.p1=p1;
-		this.p2=p2;
-		this.p3=p3;
-		this.p4=p4;
-		this.PassiveName=PassiveName;
-		this.PassiveDescription=PassiveDescription;
-	}
-	
-	void AddPassiveTags(String Passive){ //add more if necessary
-		this.Tags.add(Passive);
-	}
-	
-	void AddPassiveTags(String P1, String P2){
-		this.Tags.add(P1);
-		this.Tags.add(P2);
-	}
-	
-	void AddPassiveTags(String P1, String P2, String P3){
-		this.Tags.add(P1);
-		this.Tags.add(P2);
-		this.Tags.add(P3);
-	}
-	
-	void PrintWarframe(){ //simple, without augment
-		System.out.println("    =="+this.Name+"==");
-		System.out.print(this.PassiveName);
-		System.out.println(" "+Tags);
-		System.out.println(this.PassiveDescription);
-		this.p1.PrintPower();
-		this.p2.PrintPower();
-		this.p3.PrintPower();
-		this.p4.PrintPower();
-		System.out.println();
-	}
-	
-	void PrintWarframeWithAugment(){
-		System.out.println("    =="+this.Name+"==");
-		System.out.print(this.PassiveName);
-		System.out.println(" "+Tags);
-		System.out.println(this.PassiveDescription);
-		this.p1.PrintPower();
-		if (this.p1.Augment!=null){
-			this.p1.PrintAugment();
+	public static void main(String[] args) {
+		//Power Cast Type Tags
+		String Self="Self";
+		String Aim="Aim";
+		String Target="Target";
+		
+		//Offensive Tags
+		String Gunplay="Gunplay";
+		String Melee="Melee";
+		String Spellcaster="Spellcaster";
+		String Extension="Extension";
+		
+		//Defensive Tags
+		String Boost="Boost";
+		String Avoidance="Avoidance";
+		String Regeneration="Regeneration";
+		
+		//Utility or Other Tags
+		String Mobility="Mobility";
+		String Status="Status";
+		String Buff="Buff";
+		String Debuff="Debuff";
+		String MapControl="Map Control";
+		String CrowdControl="Crowd Control"; //MORE than 1, otherwise ALL warframes qualifies, needsto be done
+		String Support="Support";
+		String Decoy="Decoy";
+		String Other="Other";
+		String Stealth="Stealth";
+		String Loot="Loot";
+		
+		//activation switches
+		boolean PRINT_ALL_WARFRAMES=false;
+		boolean PRINT_TEST_TAG_SEARCH=true;
+		String TAG=CrowdControl; //this is the search bar
+		
+		//Creating Powers
+		Power Excalibur1=new Power("Slash Dash", "Excalibur", 1, Target, "Dash between enemies while slashing with the Exalted Blade.");
+		Excalibur1.PowerAddTags(Melee, Extension, Mobility);
+		Power Excalibur2=new Power("Radial Blind", "Excalibur", 2, Self, "Emits a bright flash of light, blinding all enemies in a small radius for several seconds.");
+		Excalibur2.PowerAddTags(Melee, CrowdControl);
+		Power Excalibur3=new Power("Radial Javelin", "Excalibur", 3, Self, "Launches javelins towards enemies, dealing high damage and impaling them to walls.");
+		Excalibur3.PowerAddTags(Spellcaster, Extension);
+		Power Excalibur4=new Power("Exalted Blade", "Excalibur", 4, Aim, "Summon a sword of pure light and immense power.");
+		Excalibur4.PowerAddTags(Melee, Extension);
+		Excalibur1.AddAugment("Surging Dash", "Slash Dash increases Combo Counter even more per hit.");
+		Excalibur1.AugmentAddTags(Melee);
+		Excalibur2.AddAugment("Radiant Finish", "Increases finisher damage.");
+		Excalibur2.AugmentAddTags(Melee);
+		Excalibur3.AddAugment("Furious Javelin", "Temporarily increases melee damage for every enemy hit by Radial Javelin.");
+		Excalibur3.AugmentAddTags(Melee, Extension);
+		
+		Power Volt1=new Power("Shock", "Volt", 1, Aim, "Stuns and damages to a single target and chains to nearby enemies.");
+		Volt1.PowerAddTags(Spellcaster, Status, CrowdControl);
+		Power Volt2=new Power("Speed", "Volt", 2, Self, "Increases Speed to Volt and nearby allies.");
+		Volt2.PowerAddTags(Mobility, Melee, Gunplay);
+		Power Volt3=new Power("Electric Shield", "Volt", 3, Aim, "Deploys a shield blocking enemy fire, and boosting ally fire.");
+		Volt3.PowerAddTags(Avoidance, Gunplay, MapControl);
+		Power Volt4=new Power("Discharge", "Volt", 4, Self, "AoE Shock");
+		Volt4.PowerAddTags(Spellcaster, CrowdControl);
+		Volt1.AddAugment("Shock Trooper", "Add Electric damage to ally weapons.");
+		Volt1.AugmentAddTags(Support);
+		Volt2.AddAugment("Shocking Speed", "Adds a Shock to nearby enemies while moving.");
+		Volt2.AugmentAddTags(Support, Spellcaster, CrowdControl);
+		Volt4.AddAugment("Capacitance", "Inflicted damage creates Overshields.");
+		Volt4.AugmentAddTags(Boost, Regeneration, Support);
+		
+		Power Mag1=new Power("Pull", "Mag", 1, Aim, "Pull enemies toward Mag, inflicting Magnetic damage.");
+		Mag1.PowerAddTags(Spellcaster, CrowdControl, "Stagger");
+		Power Mag2=new Power("Magnetize", "Mag", 2, Target, "Creates a field around a target, immobilizing it dealing damage over time. Field absorb gunfire and shards from Polarize to increase damage.");
+		Mag2.PowerAddTags(CrowdControl, Gunplay);
+		Power Mag3=new Power("Polarize", "Mag", 3, Self, "Reduces enemy shields and armor, creates shards for Magnetize, restores shields for allies.");
+		Mag3.PowerAddTags(Debuff, Support, Regeneration);
+		Power Mag4=new Power("Crush", "Mag", 4, Self, "Inflicts Magnetic damage and Crowd Control.");
+		Mag4.PowerAddTags(Spellcaster, CrowdControl);
+		Mag1.AddAugment("Geedy Pull", "Pull also attracts items.");
+		Mag1.AugmentAddTags(Other);
+		Mag3.AddAugment("Shield Transference", "Polarize creates Overshields when hitting enemy Shields");
+		Mag1.AugmentAddTags(Boost);
+		Mag4.AddAugment("Fracturing Crush", "Reduces Armor.");
+		Mag4.AugmentAddTags(Status);
+		
+		Power Ash1=new Power("Shuriken", "Ash", 1, Aim, "Throw a high damaging projectile with 100% Slash Proc.");
+		Ash1.PowerAddTags(Spellcaster, Extension);
+		Power Ash2=new Power("Smoke Screen", "Ash", 2, Self, "Becomes invisible and staggers nearby enemies.");
+		Ash2.PowerAddTags(Stealth, CrowdControl);
+		Power Ash3=new Power("Teleport", "Ash", 3, Target, "Teleport behind targeted enemy and gains finisher pop-up.");
+		Ash3.PowerAddTags(Mobility, Melee);
+		Power Ash4=new Power("Blade Storm", "Ash", 4, Target, "Marks enemies, then inflict a high finisher damage attack.");
+		Ash4.PowerAddTags(Spellcaster);
+		Ash1.AddAugment("Seeking Shuriken", "Reduces armor of affected target.");
+		Ash1.AugmentAddTags(Debuff);
+		Ash2.AddAugment("Smoke Screen", "Also hide allies.");
+		Ash2.AugmentAddTags(Support);
+		Ash3.AddAugment("Fatal Teleport", "Automaticaly inflicts an enhanced finisher.");
+		Ash3.AugmentAddTags(Spellcaster, Melee);
+		Ash4.AddAugment("Rising Storm", "Increases duration of Combo Counter");
+		Ash4.AugmentAddTags(Melee);
+		
+		Power Atlas1=new Power("Landslide", "Atlas", 1, Target, "Dash towards and bash targeted enemy, repeat for increased damage and AoE impact.");
+		Atlas1.PowerAddTags(Spellcaster, Melee, Extension);
+		Power Atlas2=new Power("Tectonics", "Atlas", 2, Aim, "Creates a wall, recast for rolling a bolder.");
+		Atlas2.PowerAddTags(MapControl, Spellcaster);
+		Power Atlas3=new Power("Petrify", "Atlas", 3, Aim, "Petrifies enemies in a cone progrssively");
+		Atlas3.PowerAddTags(CrowdControl);
+		Power Atlas4=new Power("Rumblers", "Atlas", 4, Self, "Create 2 golems to aid in fight.");
+		Atlas4.PowerAddTags(Decoy, Spellcaster);
+		Atlas1.AddAugment("Path of Statues", "Leaves a petrifying path.");
+		Atlas1.AugmentAddTags(MapControl);
+		Atlas2.AddAugment("Tectonic Fracture", "Can deploy 3 walls, but no bolders anymore.");
+		Atlas2.AugmentAddTags(MapControl);
+		Atlas3.AddAugment("Ore Gaze", "Petrified enemies are Codex-scanned and drop more loot.");
+		Atlas3.AugmentAddTags(Other, Loot);
+		Atlas4.AddAugment("Titanic Rumbler", "Creates only 1 Golem, bigger, stronger, slower and with a taunt");
+		Atlas4.AugmentAddTags(Decoy, Status, Spellcaster);
+		
+		Power Banshee1=new Power("Sonic Boom", "Banshee", 1, Aim, "Knockbacks or pushes enemies in a cone.");
+		Banshee1.PowerAddTags(CrowdControl);
+		Power Banshee2=new Power("Sonar", "Banshee", 2, Self, "Creates weakspots with a damage multiplier.");
+		Banshee2.PowerAddTags(Debuff);
+		Power Banshee3=new Power("Silence", "Banshee", 3, Self, "Silences area around Banshee, enemies are staggered and open to finishers.");
+		Banshee3.PowerAddTags(CrowdControl, Status, Melee);
+		Power Banshee4=new Power("Sound Quake", "Banshee", 4, Self, "AoE damaging pushback.");
+		Banshee4.PowerAddTags(CrowdControl, Spellcaster);
+		Banshee1.AddAugment("Sonic Fracture", "Reduces Armor.");
+		Banshee1.AugmentAddTags(Debuff);
+		Banshee2.AddAugment("Resonance", "Affected enemies creates new instances when killed.");
+		Banshee2.AugmentAddTags(Debuff);
+		Banshee3.AddAugment("Savage Silence", "Increases melee finisher damage.");
+		Banshee3.AugmentAddTags(Melee);
+		Banshee4.AddAugment("Resonating Quake", "Increases Damage, Range and Channeling costs progressively.");
+		Banshee3.AugmentAddTags(CrowdControl, Spellcaster);
+		
+		Power Chroma1=new Power("Spectral Scream", "Chroma", 1, Aim, "Spits cone of element damage with chance of proc.");
+		Chroma1.PowerAddTags(Spellcaster, Status);
+		Power Chroma2=new Power("Elemental Ward", "Chroma", 2, Self, "Provides offensive and defensive buffs depending on alignement. Allies can benefit.");
+		Chroma2.PowerAddTags(Support, Boost, Gunplay, Spellcaster, Status);
+		Power Chroma3=new Power("Vex Armor", "Chroma", 3, Self, "Shield damage increases Armor, Health damage increases Weapons damage.");
+		Chroma3.PowerAddTags(Boost, Gunplay, Melee);
+		Power Chroma4=new Power("Effigy", "Chroma", 4, Self, "Deploys Effigy, attacking and stunning enemies nearby. Can bring extra credits.");
+		Chroma4.PowerAddTags(MapControl, Decoy, CrowdControl, Loot);
+		Chroma1.AddAugment("Afterburn", "Spits elemental projectile at end of cast.");
+		Chroma1.AugmentAddTags(Spellcaster);
+		Chroma2.AddAugment("Everlasting Ward", "Allies keep the benefits once out of range.");
+		Chroma2.AugmentAddTags(Support);
+		Chroma3.AddAugment("Vexing Retaliation", "Puncture Proc on Shield damage, Blast Proc on Health damage.");
+		Chroma3.AugmentAddTags(Status);
+		
+		Power Ember1=new Power("Fireball", "Ember", 1, Aim, "Throws Fireball.");
+		Ember1.PowerAddTags(Spellcaster, Status);
+		Power Ember2=new Power("Accelerant", "Ember", 2, Self, "Stun nearby enemies with fire accelerant. Increases all fire damage dealt. Increases casting speed");
+		Ember2.PowerAddTags(Buff, CrowdControl);
+		Power Ember3=new Power("Fire Blast", "Ember", 3, Self, "AoE Fire damage.");
+		Ember3.PowerAddTags(Spellcaster, MapControl, Status);
+		Power Ember4=new Power("Wolrd On Fire", "Ember", 4, Self, "Toggle AoE Fire damage.");
+		Ember4.PowerAddTags(Spellcaster, Status);
+		Ember1.AddAugment("Fireball Frenzy", "Adds Fire damage to allies on all sources.");
+		Ember1.AugmentAddTags(Support);
+		Ember2.AddAugment("Flash Accelerant", "Adds Fire damage and casting speed to allies on all sources.");
+		Ember2.AugmentAddTags(Support);
+		Ember3.AddAugment("Fire Fright", "Ring of Fire can make enemies panic.");
+		Ember3.AugmentAddTags(MapControl, Status);
+		Ember4.AddAugment("Firequake", "Inflicts knockdown on enemies.");
+		Ember4.AugmentAddTags(CrowdControl);
+		
+		Power Equinox1=new Power("Metamorphosis", "Equinox", 1, Self, "Change form with weakening buff");
+		Equinox1.PowerAddTags(Mobility, Boost, Gunplay, Melee);
+		Power Equinox2=new Power("Rest & Rage", "Equinox", 2, Target, "Night: Inflicts Sleep. Day: Inflicts Quicken and more vulnerable to damage.");
+		Equinox2.PowerAddTags(Debuff, Melee);
+		Power Equinox3=new Power("Pacify & Provoke", "Equinox", 3, Self, "Night: Reduces enemy damage. Day: Increases Power Strength.");
+		Equinox3.PowerAddTags(Boost, Support, Buff);
+		Power Equinox4=new Power("Mend & Maim", "Equinox", 4, Self, "Night: Stores damage on enemies to restore health and shields. Day: Stores damage on enemies to inflict burst.");
+		Equinox4.PowerAddTags(Spellcaster, Support, Regeneration, CrowdControl);
+		Equinox1.AddAugment("Duality", "Second half of Equinox will participate with equiped weapon.");
+		Equinox1.AugmentAddTags(Spellcaster, Decoy, Gunplay, Melee, Extension);
+		Equinox2.AddAugment("Calm & Frenzy", "Add AoE to base spell.");
+		Equinox2.AugmentAddTags(Debuff, Melee, CrowdControl);
+		Equinox3.AddAugment("Peaceful Provocation", "Night: Adds slow. Day: Increases Power Strength further.");
+		Equinox3.AugmentAddTags(Boost, Support, Debuff);
+		
+		Power Frost1=new Power("Freeze", "Frost", 1, Aim, "Freezes enemies or targeted zone.");
+		Frost1.PowerAddTags(Status, MapControl);
+		Power Frost2=new Power("Ice Wave", "Frost", 2, Aim, "Cone of Ice damage.");
+		Frost2.PowerAddTags(Spellcaster, Status, Debuff);
+		Power Frost3=new Power("Snow Globe", "Frost", 3, Self, "Creates globe blocking enemy fire, enemies within are slowed. When cast, enemies within range are expelled.");
+		Frost3.PowerAddTags(MapControl, Debuff, Avoidance);
+		Power Frost4=new Power("Avalanche", "Frost", 4, Self, "Freezes enemies, reduces armor with great damage.");
+		Frost4.PowerAddTags(Spellcaster, Debuff, CrowdControl);
+		Frost1.AddAugment("Freeze Force", "Adds Ice damage to allies on all sources.");
+		Frost1.AugmentAddTags(Support);
+		Frost2.AddAugment("Ice Wave Impedance", "Also freezes the groud, slowing enemies.");
+		Frost2.AugmentAddTags(MapControl, Debuff);
+		Frost3.AddAugment("Chilling Globe", "May freeze enemies entering the globe.");
+		Frost3.AugmentAddTags(MapControl, CrowdControl, Status);
+		
+		Power Hydroid1=new Power("Tempest Barrage", "Hydroid", 1, Aim, "Bombards targets area.");
+		Hydroid1.PowerAddTags(MapControl, CrowdControl, Spellcaster);
+		Power Hydroid2=new Power("Tidal Surge", "Hydroid", 2, Aim, "Dash foward while invulnerable.");
+		Hydroid2.PowerAddTags(Mobility, Avoidance, CrowdControl);
+		Power Hydroid3=new Power("Undertow", "Hydroid", 3, Self, "Turns into a puddle, trapping enemies.");
+		Hydroid3.PowerAddTags(Avoidance, MapControl);
+		Power Hydroid4=new Power("Tentacle Swarm", "Hydroid", 4, Aim, "Summons tentacles in target area.");
+		Hydroid4.PowerAddTags(CrowdControl, MapControl, Spellcaster);
+		Hydroid2.AddAugment("Tidal Impunity", "Remove Status effets and provides immunity to them, allies can benefit.");
+		Hydroid2.AugmentAddTags(Support, Avoidance);
+		Hydroid3.AddAugment("Curative Undertow", "Can heal Hydroid and allies.");
+		Hydroid3.AugmentAddTags(Support, Regeneration);
+		Hydroid4.AddAugment("Pilfering Swarm", "Additional loot from snared ennemies.");
+		Hydroid4.AugmentAddTags(Loot);
+		
+		Power Inaros1=new Power("Desiccation", "Inaros", 1, Aim, "Throws sand to blind enemies.");
+		Inaros1.PowerAddTags(Melee);
+		Power Inaros2=new Power("Devour", "Inaros", 2, Target, "Locks on target, immobilizing it and draining it of Health and Shield. If killed, creates sand Shadow.");
+		Inaros2.PowerAddTags(Decoy, Regeneration);
+		Power Inaros3=new Power("Sandstorm", "Inaros", 3, Self, "Turn into a tornado, flinging away enemies.");
+		Inaros3.PowerAddTags(CrowdControl, Spellcaster);
+		Power Inaros4=new Power("Scarab Swarm", "Inaros", 4, Self, "Spend Health to obtain Armor. This Armor can then be spent on damage spell AoE crowd-control.");
+		Inaros4.PowerAddTags(Boost, Spellcaster, CrowdControl);
+		Inaros3.AddAugment("Elemental Sandstorm", "Sandstorm can inflict procs based on currently equiped weapon.");
+		Inaros3.AugmentAddTags(Melee, Gunplay, Status);
+		
+		Power Ivara1=new Power("Quiver", "Ivara", 1, Aim, "Cloak, Sleep, Noise or Ripline arrow.");
+		Ivara1.PowerAddTags(Stealth, Support, Melee, Mobility, MapControl, Other);
+		Power Ivara2=new Power("Navigator", "Ivara", 2, Aim, "Takes control of shot bullet.");
+		Ivara2.PowerAddTags(Gunplay);
+		Power Ivara3=new Power("Prowl", "Ivara", 3, Self, "Become invisible and can steal loot. Reduced monility.");
+		Ivara3.PowerAddTags(Stealth, Loot);
+		Power Ivara4=new Power("Artemis Bow", "Ivara", 4, Self, "Summon the Artemis Bow.");
+		Ivara4.PowerAddTags(Gunplay, Extension);
+		Ivara3.AddAugment("Infiltrate", "Increased movement speed and immunity to security barriers.");
+		Ivara3.AugmentAddTags(Mobility, Avoidance);
+		
+		Power Limbo1=new Power("Banish", "Limbo", 1, Target, "Banish target to the Rift.");
+		Limbo1.PowerAddTags(Support, Other);
+		Power Limbo2=new Power("Riftwalk", "Limbo", 2, Self, "Go into the rift.");
+		Limbo2.PowerAddTags(Avoidance, Regeneration);
+		Power Limbo3=new Power("Rift Surge", "Limbo", 3, Self, "Increased damage to enemies in the Rift.");
+		Limbo3.PowerAddTags(Melee, Gunplay);
+		Power Limbo4=new Power("Cataclysm", "Limbo", 4, Aim, "Creates a shrinking Rift bubble.");
+		Limbo4.PowerAddTags(MapControl);
+		Limbo1.AddAugment("Haven", "Restore Health to allies.");
+		Limbo1.AugmentAddTags(Support);
+		Limbo3.AddAugment("Rift Torrent", "Increased Rift bonus damage for each enemies in the Rift.");
+		Limbo3.AugmentAddTags(Melee, Gunplay);
+		Limbo4.AddAugment("Cataclysmic Continuum", "Increases Cataclysm duration for each enemu killed within.");
+		Limbo4.AugmentAddTags(Other);
+		
+		Power Loki1=new Power("Decoy", "Loki", 1, Aim, "Places a decoy.");
+		Loki1.PowerAddTags(Decoy);
+		Power Loki2=new Power("Invisibility", "Loki", 2, Self, "Become invisible.");
+		Loki2.PowerAddTags(Stealth);
+		Power Loki3=new Power("Switch Teleport", "Loki", 3, Target, "Switch places with target.");
+		Loki3.PowerAddTags(Support, Other, Mobility);
+		Power Loki4=new Power("Radial Disarm", "Loki", 4, Self, "Disarm firearm wielding enemies.");
+		Loki4.PowerAddTags(CrowdControl, Other);
+		Loki2.AddAugment("Hushed Invisibility", "Hushes firearms.");
+		Loki2.AugmentAddTags(Gunplay);
+		Loki3.AddAugment("Safeguard Switch","Allies are invicible when switched with.");
+		Loki3.AugmentAddTags(Support);
+		Loki4.AddAugment("Irradiating Disarm", "Inflicts Radiation proc.");
+		Loki4.AugmentAddTags(Status);
+		
+		Power Mesa1=new Power("Ballistic Battery", "Mesa", 1, Self, "Stores gunfire damage, release at next shot after uncast.");
+		Mesa1.PowerAddTags(Gunplay);
+		Power Mesa2=new Power("Shooting Gallery", "Mesa", 2, Self, "Boost weapon damage, jams enemy firearms. Cycles between allies.");
+		Mesa2.PowerAddTags(Support, CrowdControl, Gunplay);
+		Power Mesa3=new Power("Shatter Shield", "Mesa", 3, Self, "Reduces damage and reflect it back to attackers.");
+		Mesa3.PowerAddTags(Boost);
+		Power Mesa4=new Power("Peacemaker", "Mesa", 4, Aim, "Deploys Regulator pistols and auto-shoots around recticle.");
+		Mesa4.PowerAddTags(Spellcaster, Extension);
+		Mesa1.AddAugment("Ballistic Bullseye", "Stores Status Chance.");
+		Mesa1.AugmentAddTags(Gunplay, Status);
+		Mesa2.AddAugment("Muzzle Flash", "Emits a blinding flash when cycling.");
+		Mesa2.AugmentAddTags(Support, CrowdControl);
+		Mesa3.AddAugment("Staggering Shield", "Chance to stagger enemies when reflecting damage.");
+		Mesa3.AugmentAddTags(CrowdControl);
+		
+		Power Mirage1=new Power("Hall of Mirrors", "Mirage", 1, Self, "Creates doubles synchronized with Mirage for extra damage.");
+		Mirage1.PowerAddTags(Melee, Gunplay, Decoy);
+		Power Mirage2=new Power("Sleight Of Hand", "Mirage", 2, Self, "Traps environement and items.");
+		Mirage2.PowerAddTags(MapControl, Spellcaster);
+		Power Mirage3=new Power("Eclipse", "Mirage", 3, Self, "Increases weapon damage in light. Increases damage reduction in dark.");
+		Mirage3.PowerAddTags(Melee, Gunplay, Boost);
+		Power Mirage4=new Power("Prism", "Mirage", 4, Aim, "Deploy laser-shooting sphere. Stuns at end of cast.");
+		Mirage4.PowerAddTags(Spellcaster, CrowdControl);
+		Mirage1.AddAugment("Hall of Malevolence", "Kills increase doubles damage.");
+		Mirage1.AugmentAddTags(Melee, Gunplay);
+		Mirage2.AddAugment("Explosive Legerdemain", "Turns pickups into traps.");
+		Mirage2.AugmentAddTags(Spellcaster, MapControl);
+		Mirage3.AddAugment("Total Eclipse", "Allies benefit from Eclipse.");
+		Mirage3.AugmentAddTags(Support);
+		
+		Power Nekros1=new Power("Soul Punch", "Nekros", 1, Target, "Blasts away targeted enemy.");
+		Nekros1.PowerAddTags(Spellcaster);
+		Power Nekros2=new Power("Terrify", "Nekros", 2, Self, "Terrify ennemies.");
+		Nekros2.PowerAddTags(Status);
+		Power Nekros3=new Power("Desecrate", "Nekros", 3, Self, "Turn corpses into loot. High chance of Health pickup.");
+		Nekros3.PowerAddTags(Regeneration, Loot);
+		Power Nekros4=new Power("Shadows Of The Dead", "Nekros", 4, Self, "Summons previously killed enemies as allies with diminishing Health.");
+		Nekros4.PowerAddTags(Decoy, Spellcaster);
+		Nekros1.AddAugment("Soul Survivor", "Saves dying allies.");
+		Nekros1.AugmentAddTags(Support);
+		Nekros2.AddAugment("Creeping Terrify", "Slows ennemies.");
+		Nekros2.AugmentAddTags(Status);
+		Nekros3.AddAugment("Despoil", "Cast cost changed from Energy to Health.");
+		Nekros3.AugmentAddTags(Regeneration);
+		Nekros4.AddAugment("Shield of Shadows", "Shadows absorb part of the damage inflicted to Nekros.");
+		Nekros4.AugmentAddTags(Boost);
+		
+		Power Nezha1=new Power("Firewalker", "Nezha", 1, Self, "Leaves trail of fire and increases mouvement speed. Removes status effect on allies.");
+		Nezha1.PowerAddTags(Spellcaster, Support, Mobility);
+		Power Nezha2=new Power("Blazing Chakram", "Nezha", 2, Aim, "Throws chakram fire, ignited enemies that dies emit healing pulse. Can be used as a teleporter.");
+		Nezha2.PowerAddTags(Spellcaster, Mobility, Support, Regeneration);
+		Power Nezha3=new Power("Warding Halo", "Nezha", 3, Self, "Creates extra layer of hitpoints, damages and stun nearby enemies.");
+		Nezha3.PowerAddTags(Boost, CrowdControl, Spellcaster);
+		Power Nezha4=new Power("Divine Spears", "Nezha", 4, Self, "Summon impaling spears, exposing enemies to ground finishers.");
+		Nezha4.PowerAddTags(Spellcaster, Melee, CrowdControl);
+		Nezha3.AddAugment("Safeguard", "Can cast Warding Halo on allies, although at reduced duration.");
+		Nezha3.AugmentAddTags(Support);
+		
+		Power Nova1=new Power("Null Star", "Nova", 1, Self, "Creates particles that automaticaly strikes nearby enemies.");
+		Nova1.PowerAddTags(Spellcaster);
+		Power Nova2=new Power("Antimatter Drop", "Nova", 2, Aim, "Throws orb absorbing weapons fire and detonates at contact.");
+		Nova2.PowerAddTags(Spellcaster);
+		Power Nova3=new Power("Worm Hole", "Nova", 3, Aim, "Creates a wormhole for instantaneous travel.");
+		Nova3.PowerAddTags(Mobility);
+		Power Nova4=new Power("Molecular Prime", "Nova", 4, Self, "''Primes'' enemies increasing damage against them and affecting their speed.");
+		Nova4.PowerAddTags(Debuff);
+		Nova1.AddAugment("Neutron Star", "May detonate remaning particles for AoE damage with blast proc.");
+		Nova1.AugmentAddTags(Spellcaster, CrowdControl);
+		Nova2.AddAugment("Antimatter Absorb", "Adds a field absorbing weapon fire.");
+		Nova2.AugmentAddTags(Avoidance);
+		Nova3.AddAugment("Escape Velocity", "Using the Worm Hole increases movement speed.");
+		Nova3.AugmentAddTags(Mobility);
+		
+		Power Nyx1=new Power("Mind Control", "Nyx", 1, Target, "Targeted enemy becomes a temporary ally.");
+		Nyx1.PowerAddTags(Decoy);
+		Power Nyx2=new Power("Psychic Bolts", "Nyx", 2, Self, "Throws guided bolts with chance of Radiation Status.");
+		Nyx2.PowerAddTags(Spellcaster, Status);
+		Power Nyx3=new Power("Chaos", "Nyx", 3, Self, "Stuns and inflict Confusion to enemies.");
+		Nyx3.PowerAddTags(CrowdControl, Status);
+		Power Nyx4=new Power("Absorb", "Nyx", 4, Self, "Absorb gunfire at the cost movement, decast to releash damage and knockback.");
+		Nyx4.PowerAddTags(Avoidance, Spellcaster, CrowdControl);
+		Nyx1.AddAugment("Mind Freak", "Increases damage of mind-controlled enemy.");
+		Nyx1.AugmentAddTags(Spellcaster);
+		Nyx2.AddAugment("Pacifying Bolts", "Stuns enemies.");
+		Nyx2.AugmentAddTags(CrowdControl);
+		Nyx3.AddAugment("Chaos Sphere", "Creates shrinking sphere stunning causing Confusion to enemies touching it.");
+		Nyx3.AugmentAddTags(MapControl, Status, CrowdControl);
+		Nyx4.AddAugment("Assimilate", "Enable walking when using Absorb.");
+		Nyx4.AugmentAddTags(Mobility);
+		
+		Power Oberon1=new Power("Smite", "Oberon", 1, Target, "Shoots projectile inflicing Radiation proc on target, then staggers and punctures other nearby enemies.");
+		Oberon1.PowerAddTags(Spellcaster, Status, CrowdControl);
+		Power Oberon2=new Power("Hallowed Ground", "Oberon", 2, Aim, "Blesses the floor in front of Oberon, removing, protecting from status effects, and a boost of Armor.");
+		Oberon2.PowerAddTags(MapControl, Boost);
+		Power Oberon3=new Power("Renewal", "Oberon", 3, Self, "Instant heal and progressive for Oberon, teammates and companions.");
+		Oberon3.PowerAddTags(Regeneration, Support);
+		Power Oberon4=new Power("Reckoning", "Oberon", 4, Self, "Slam enemies to ground, inflicting knockdown and radiation proc. Chance of Health Orb on killed enemies.");
+		Oberon4.PowerAddTags(Spellcaster, Status, CrowdControl);
+		Oberon1.AddAugment("Smite Infusion", "Add Radiation damage to ally weapons.");
+		Oberon1.AugmentAddTags(Support);
+		Oberon2.AddAugment("Hallowed Eruption", "Recast will detonate previous instance, dealing Radiation damage.");
+		Oberon2.AugmentAddTags(MapControl, Spellcaster);
+		Oberon3.AddAugment("Phoenix Renewal", "Instant heal apporching death. Has a cooldown.");
+		Oberon3.AugmentAddTags(Regeneration, Support);
+		Oberon4.AddAugment("Hallowed Reckoning", "Enemies leaves a trace, inflicting damage to them and boosting Armor.");
+		Oberon4.AugmentAddTags(Boost, MapControl, Spellcaster);
+		
+		Power Rhino1=new Power("Rhino Charge", "Rhino", 1, Aim, "Dashes forward, inflicting damage to enemies on the way.");
+		Rhino1.PowerAddTags(Mobility, Spellcaster);
+		Power Rhino2=new Power("Iron Skin", "Rhino", 2, Self, "Adds extra layer of hitpoints.");
+		Rhino2.PowerAddTags(Boost);
+		Power Rhino3=new Power("Roar", "Rhino", 3, Self, "Boost all damage types Rhino and allies in range.");
+		Rhino3.PowerAddTags(Spellcaster, Melee, Gunplay, Support);
+		Power Rhino4=new Power("Rhino Stomp", "Rhino", 4, Self, "Inflicts blast damage, sends enemies into levitation.");
+		Rhino4.PowerAddTags(Spellcaster, CrowdControl);
+		Rhino1.AddAugment("Ironclad Charge", "Increases proportionately to the numbers of enemies hit.");
+		Rhino1.AugmentAddTags(Boost);
+		Rhino2.AddAugment("Iron Shrapnel", "Iron can be recast to detonate remaining armor into Puncture damage with proc chance.");
+		Rhino2.AugmentAddTags(Spellcaster);
+		Rhino3.AddAugment("Piercing Roar", "Adds Puncture proc to Roar.");
+		Rhino3.AugmentAddTags(Status, Debuff);
+		
+		Power Saryn1=new Power("Spores", "Saryn", 1, Target, "Covers spores on target, destroying them spread the spores, with Viral proc.");
+		Saryn1.PowerAddTags(Debuff, Status);
+		Power Saryn2=new Power("Molt", "Saryn", 2, Self, "Instantly leave a clone. If destroyed, inflicts Toxin damage with proc. Can be loaded with Spores");
+		Saryn2.PowerAddTags(Decoy, Status);
+		Power Saryn3=new Power("Toxic Lash", "Saryn", 3, Self, "Boosts melee weapon damage with Toxin. Increases parry ratio.");
+		Saryn3.PowerAddTags(Melee);
+		Power Saryn4=new Power("Miasma", "Saryn", 4, Self, "Corrosive blast and DoT. Stuns. Increased damage when enemies have Toxin and/or Viral proc.");
+		Saryn4.PowerAddTags(CrowdControl, Spellcaster);
+		Saryn1.AddAugment("Venom Dose", "Add Toxin damage to ally weapons.");
+		Saryn1.AugmentAddTags(Support);
+		Saryn2.AddAugment("Regenerative Molt", "Casting Molt triggers a temporary health regeneration.");
+		Saryn2.PowerAddTags(Regeneration);
+		Saryn3.AddAugment("Contagion Cloud", "Killed enemies leave behing a toxic cloud.");
+		Saryn3.PowerAddTags(MapControl, Spellcaster);
+		
+		Power Titania1=new Power("Spellbind", "Titania", 1, Aim, "Enemies in the target area are levitate helplessly. Allies within are immune to status chance.");
+		Titania1.PowerAddTags(CrowdControl, MapControl, Avoidance);
+		Power Titania2=new Power("Tribute", "Titania", 2, Target, "Extract a buff from an enemy. Enemy takes damage and deal less damage.");
+		Titania2.PowerAddTags(Buff);
+		Power Titania3=new Power("Lantern", "Titania", 3, Target, "Send a enemy floating, acting like a lure, and damage nearby enemies. Explodes at the end.");
+		Titania3.PowerAddTags(Decoy, Spellcaster, CrowdControl);
+		Power Titania4=new Power("Razorwing", "Titania", 4, Self, "Turn into a mini-Archwing.");
+		Titania4.PowerAddTags(Mobility, Extension, Melee, Gunplay);
+		
+		Power Trinity1=new Power("Well Of Life", "Trinity", 1, Target, "Target is sent levitating, emiting healing pulse.");
+		Trinity1.PowerAddTags(Regeneration, Support);
+		Power Trinity2=new Power("Energy Vampire", "Trinity", 2, Target, "Target is stunned, emiting energy pulse.");
+		Trinity2.PowerAddTags(Regeneration, Support);
+		Power Trinity3=new Power("Link", "Trinity", 3, Self, "Partially redirects damage to 3 nearby enemies.");
+		Trinity3.PowerAddTags(Boost);
+		Power Trinity4=new Power("Blessing", "Trinity", 4, Self, "Heal and reshield allies within range, with damage reduction boost.");
+		Trinity4.PowerAddTags(Regeneration, Boost, Support);
+		Trinity1.AddAugment("Pool of Life", "Marked enemies drop Health Orbs on death, with a chance of Energy Orb.");
+		Trinity1.AugmentAddTags(Loot);
+		Trinity2.AddAugment("Vampire Leech", "If energy reserve is maxed, grants Overshields.");
+		Trinity2.AugmentAddTags(Regeneration, Support);
+		Trinity3.AddAugment("Abating Link", "Linked enemies have reduced armor.");
+		Trinity3.AugmentAddTags(Debuff);
+		
+		Power Valkyr1=new Power("Rip Line", "Valkyr", 1, Aim, "Grappling hook on enemies or environement.");
+		Valkyr1.PowerAddTags(Mobility);
+		Power Valkyr2=new Power("Warcry", "Valkyr", 2, Self, "Boosts Armor, Attack Speed and slows nearby enemies. Allies can benefit.");
+		Valkyr2.PowerAddTags(Boost, Melee, Debuff);
+		Power Valkyr3=new Power("Paralysis", "Valkyr", 3, Aim, "Paralyzes enemies in range.");
+		Valkyr3.PowerAddTags(CrowdControl);
+		Power Valkyr4=new Power("Hysteria", "Valkyr", 4, Self, "Grants immunity to damage and status effects, and lifesteal to melee strikes.");
+		Valkyr4.PowerAddTags(Melee, Avoidance, Extension);
+		Valkyr1.AddAugment("Swing Line", "After first cast if airbone, next few casts are free.");
+		Valkyr1.AugmentAddTags(Mobility);
+		Valkyr2.AddAugment("Eternal War", "Melee kills prolong Warcry effects.");
+		Valkyr2.AugmentAddTags(Melee);
+		Valkyr3.AddAugment("Prolonged Paralysis", "Prolong Paralysis duration, and pulls them toward Valkyr.");
+		Valkyr3.AugmentAddTags(CrowdControl);
+		Valkyr4.AddAugment("Hysterical Assault", "Enable dashing to targets with Secondary Fire.");
+		Valkyr4.AugmentAddTags(Mobility);
+		
+		Power Vauban1=new Power("Tesla", "Vauban", 1, Aim, "Throws a sticky grenade emiting eletric arcs to nearby enemies. Can be used on allies.");
+		Vauban1.PowerAddTags(MapControl, CrowdControl, Support, Spellcaster);
+		Power Vauban2=new Power("Minelayer", "Vauban", 2, Aim, "Bounce. Trip. Shred. Concuss.");
+		Vauban2.PowerAddTags(MapControl, CrowdControl, Status, Spellcaster, Mobility, Debuff);
+		Power Vauban3=new Power("Bastille", "Vauban", 3, Aim, "Creates AoE that levitates enemies.");
+		Vauban3.PowerAddTags(MapControl, CrowdControl);
+		Power Vauban4=new Power("Vortex", "Vauban", 4, Aim, "Creates Vortex");
+		Vauban4.PowerAddTags(MapControl, CrowdControl);
+		Vauban1.AddAugment("Tesla Link", "Links Tesla grenades with slicing laser.");
+		Vauban1.AugmentAddTags(MapControl, Spellcaster);
+		Vauban3.AddAugment("Repelling Bastille", "Bastille repels enemies.");
+		Vauban3.AugmentAddTags(MapControl, CrowdControl);
+		Vauban4.AddAugment("Perpetual Vortex", "Prolong Vortex duration.");
+		Vauban4.AugmentAddTags(MapControl, CrowdControl);
+		
+		Power Wukong1=new Power("Iron Jab", "Wukong", 1, Aim, "Staff strike inflicting knockdown on targeted enemy.");
+		Wukong1.PowerAddTags(Spellcaster, Extension);
+		Power Wukong2=new Power("Defy", "Wukong", 2, Self, "Restore Health upon lethal damage and grants temporary invincibility. Drains Energy.");
+		Wukong2.PowerAddTags(Regeneration, Avoidance);
+		Power Wukong3=new Power("Cloud Walker", "Wukong", 3, Self, "Turn into a cloud with free mobility. Stun nearby enemies at deactivation and are open to finishers.");
+		Wukong3.PowerAddTags(Stealth, Mobility, CrowdControl, Melee);
+		Power Wukong4=new Power("Primal Fury", "Wukong", 4, Self, "Summons the Iron Staff, increasing in length with each hit.");
+		Wukong4.PowerAddTags(Melee, Extension);
+		Wukong1.AddAugment("Iron Vault", "Performing Iron Jab the ground will lauch Wukong into the air, enhancing the following Melee Slam attack with increased damage and radius.");
+		Wukong1.AugmentAddTags(Melee);
+		Wukong4.AddAugment("Primal Rage", "Kills will increase Crit Chance. Decays over time.");
+		Wukong4.AugmentAddTags(Melee);
+		
+		Power Zephyr1=new Power("Tail Wind", "Zephyr", 1, Aim, "On the ground, dashes upwards. Airborne, dashes in the aiming direction. Inflict damage and knockdown to nearby enemies.");
+		Zephyr1.PowerAddTags(Mobility, CrowdControl, Spellcaster);
+		Power Zephyr2=new Power("Dive Bomb", "Zephyr", 2, Self, "If airborne, nose-dives slamming the ground inflicting damage and knockdown to nearby enemies.");
+		Zephyr2.PowerAddTags(Mobility, CrowdControl, Spellcaster);
+		Power Zephyr3=new Power("Turbulence", "Zehpyr", 3, Self, "Creates wind barrier deflecting weapon fire.");
+		Zephyr3.PowerAddTags(Avoidance);
+		Power Zephyr4=new Power("Tornado", "Zephyr", 4, Aim, "Deploys tornados pulling enemies and inflicting damage. Tornados can be affected with elemental damage.");
+		Zephyr4.PowerAddTags(CrowdControl, MapControl, Status, Spellcaster);
+		Zephyr2.AddAugment("Divebomb Vortex", "Impact will draw enemies to its center.");
+		Zephyr2.AugmentAddTags("CrowdControl");
+		Zephyr3.AddAugment("Jet Stream", "Increases movement speed and projectile for Zephyr and nearby allies.");
+		Zephyr3.AugmentAddTags(Mobility, Gunplay, Support);
+		Zephyr4.AddAugment("Funnel Clouds", "Creates more but smaller tornados, without crowd control abilities.");
+		Zephyr4.AugmentAddTags(MapControl, Spellcaster, Status);
+		
+		//Creating warframes
+		Warframe Excalibur=new Warframe("Excalibur", Excalibur1, Excalibur2, Excalibur3, Excalibur4, "Swordsmanship", "Bonus damage and attack speed for swords.");
+		Excalibur.AddPassiveTags(Melee);
+		Warframe Volt=new Warframe("Volt", Volt1, Volt2, Volt3, Volt4, "Static Discharge", "Charges a battery through ground movement, unload it through inflicting damage granting extra electric damage.");
+		Volt.AddPassiveTags(Melee, Gunplay, Spellcaster);
+		Warframe Mag=new Warframe("Mag", Mag1, Mag2, Mag3, Mag4, "Vacuum", "Pull items while bullet-jumping.");
+		Mag.AddPassiveTags(Other);
+		Warframe Ash=new Warframe("Ash", Ash1, Ash2, Ash3, Ash4, "Hemorrhage", "Stronger and longer Slash procs.");
+		Ash.AddPassiveTags(Gunplay, Melee, Spellcaster);
+		Warframe Atlas=new Warframe("Atlas", Atlas1, Atlas2, Atlas3, Atlas4, "Immovable", "Immunity to knockdown.");
+		Atlas.AddPassiveTags(Mobility);
+		Warframe Banshee=new Warframe("Banshee", Banshee1, Banshee2, Banshee3, Banshee4, "Suppressor", "Silences Banshee's weapons.");
+		Banshee.AddPassiveTags(Gunplay);
+		Warframe Chroma=new Warframe("Chroma", Chroma1, Chroma2, Chroma3, Chroma4, "Elemental Alignment", "Energy color determinates base elemental usage.");
+		Chroma.AddPassiveTags(Other);
+		Warframe Ember=new Warframe("Ember", Ember1, Ember2, Ember3, Ember4, "Ignition", "Bonus Power Strength and Energy regeneration when under fire proc.");
+		Ember.AddPassiveTags(Regeneration, Spellcaster);
+		Warframe Equinox=new Warframe("Equinox", Equinox1, Equinox2, Equinox3, Equinox4, "Equillibrium", "Health orbs restore Energy and vice-versa.");
+		Equinox.AddPassiveTags(Regeneration);
+		Warframe Frost=new Warframe("Frost", Frost1, Frost2, Frost3, Frost4, "Cryogenic", "May freeze when hit with melee attack.");
+		Frost.AddPassiveTags(Status);
+		Warframe Hydroid=new Warframe("Hydroid", Hydroid1, Hydroid2, Hydroid3, Hydroid4, "Deep Tendril", "50% chance to summon a tentacle.");
+		Hydroid.AddPassiveTags(Melee);
+		Warframe Inaros=new Warframe("Inaros", Inaros1, Inaros2, Inaros3, Inaros4, "Undying", "Finishers restore Health. When dying, Inaros can absord Health from enemies to ressurect himself.");
+		Inaros.AddPassiveTags(Melee, Avoidance, Regeneration);
+		Warframe Ivara=new Warframe("Ivara", Ivara1, Ivara2, Ivara3, Ivara4, "Sentry", "20 meters enemy radar.");
+		Ivara.AddPassiveTags(Other);
+		Warframe Limbo=new Warframe("Limbo", Limbo1, Limbo2, Limbo3, Limbo4, "Rift Efficiency", "Increased Reload speed and movement speed in Rift.");
+		Limbo.AddPassiveTags(Gunplay, Mobility);
+		Warframe Loki=new Warframe("Loki", Loki1, Loki2, Loki3, Loki4, "Wall Grapple", "Longer Wall Lactch.");
+		Loki.AddPassiveTags(Mobility);
+		Warframe Mesa=new Warframe("Mesa", Mesa1, Mesa2, Mesa3, Mesa4, "Marksman's Dexterity", "Bonus fire rate on dual pistols. Bonus reload speed on solo pistol. Bonus health without melee weapon.");
+		Mesa.AddPassiveTags(Gunplay, Melee);
+		Warframe Mirage=new Warframe("Mirage", Mirage1, Mirage2, Mirage3, Mirage4, "Jester's Proficiency", "Faster Maneuvers");
+		Mirage.AddPassiveTags(Mobility);
+		Warframe Nekros=new Warframe("Nekros", Nekros1, Nekros2, Nekros3, Nekros4, "Soul Siphon", "Restores Health near dying ennemies.");
+		Nekros.AddPassiveTags(Regeneration);
+		Warframe Nezha=new Warframe("Nezha", Nezha1, Nezha2, Nezha3, Nezha4, "Frictionless", "Reduced friction.");
+		Nezha.AddPassiveTags(Mobility);
+		Warframe Nova=new Warframe("Nova", Nova1, Nova2, Nova3, Nova4, "Explosive Counter", "When knocked down, nearby enemies are knocked down too by a blast.");
+		Nova.AddPassiveTags(CrowdControl);
+		Warframe Nyx=new Warframe("Nyx", Nyx1, Nyx2, Nyx3, Nyx4, "Relinquish", "Chance of disarming enemies when affected by Nyx's spells.");
+		Nyx.AddPassiveTags(Status);
+		Warframe Oberon=new Warframe("Oberon", Oberon1, Oberon2, Oberon3, Oberon4, "Beastmaster", "Animals becomes allies. Can be refreshed.");
+		Oberon.AddPassiveTags(Decoy);
+		Warframe Rhino=new Warframe("Rhino", Rhino1, Rhino2, Rhino3, Rhino4, "Heavy Landing", "Creates shockwave if heavy landing.");
+		Rhino.AddPassiveTags(CrowdControl);
+		Warframe Saryn=new Warframe("Saryn", Saryn1, Saryn2, Saryn3, Saryn4, "Potency", "Status effects last 25% longer.");
+		Saryn.AddPassiveTags(Status);
+		Warframe Titania=new Warframe("Titania", Titania1, Titania2, Titania3, Titania4, "Dust Bloom", "Greater Bullet Jump distance, when doing so, leaves a mark behind granting greater maneuver distance.");
+		Titania.AddPassiveTags(Mobility, MapControl);
+		Warframe Trinity=new Warframe("Trinity", Trinity1, Trinity2, Trinity3, Trinity4, "Triage", "Revive fallen allies faster.");
+		Trinity.AddPassiveTags(Regeneration);
+		Warframe Valkyr=new Warframe("Valkyr", Valkyr1, Valkyr2, Valkyr3, Valkyr4, "Nimble", "Immune to heavy landing, and quicker knockdown recovery.");
+		Valkyr.AddPassiveTags(Mobility);
+		Warframe Vauban=new Warframe("Vauban", Vauban1, Vauban2, Vauban3, Vauban4, "Reinforce", "Boosts Armor when allied Warframe are nearby.");
+		Vauban.AddPassiveTags(Boost);
+		Warframe Wukong=new Warframe("Wukong", Wukong1, Wukong2, Wukong3, Wukong4, "Tenacity", "Longer Combo Counter.");
+		Wukong.AddPassiveTags(Melee);
+		Warframe Zephyr=new Warframe("Zephyr", Zephyr1, Zephyr2, Zephyr3, Zephyr4, "Lightweight", "Falls slower.");
+		
+		if(PRINT_ALL_WARFRAMES){ //control from the to
+			Excalibur.PrintWarframeWithAugment();
+			Volt.PrintWarframeWithAugment();
+			Mag.PrintWarframeWithAugment();
+			Ash.PrintWarframeWithAugment();
 		}
-		this.p2.PrintPower();
-		if (this.p2.Augment!=null){
-			this.p2.PrintAugment();
+		
+		if(PRINT_TEST_TAG_SEARCH){
+			SearchTag SEARCH=new SearchTag(TAG);
+			SEARCH.AddWarframe(Excalibur);
+			SEARCH.AddWarframe(Volt);
+			SEARCH.AddWarframe(Mag);
+			SEARCH.AddWarframe(Ash);
+			SEARCH.AddWarframe(Atlas);
+			SEARCH.AddWarframe(Banshee);
+			SEARCH.AddWarframe(Chroma);
+			SEARCH.AddWarframe(Ember);
+			SEARCH.AddWarframe(Equinox);
+			SEARCH.AddWarframe(Frost);
+			SEARCH.AddWarframe(Hydroid);
+			SEARCH.AddWarframe(Inaros);
+			SEARCH.AddWarframe(Ivara);
+			SEARCH.AddWarframe(Limbo);
+			SEARCH.AddWarframe(Loki);
+			SEARCH.AddWarframe(Mesa);
+			SEARCH.AddWarframe(Mirage);
+			SEARCH.AddWarframe(Nekros);
+			SEARCH.AddWarframe(Nezha);
+			SEARCH.AddWarframe(Nova);
+			SEARCH.AddWarframe(Nyx);
+			SEARCH.AddWarframe(Oberon);
+			SEARCH.AddWarframe(Rhino);
+			SEARCH.AddWarframe(Saryn);
+			SEARCH.AddWarframe(Titania);
+			SEARCH.AddWarframe(Trinity);
+			SEARCH.AddWarframe(Valkyr);
+			SEARCH.AddWarframe(Vauban);
+			SEARCH.AddWarframe(Wukong);
+			SEARCH.AddWarframe(Zephyr);
+			//SEARCH.PrintResult();
+			SEARCH.PrintResultWithAugments();
 		}
-		this.p3.PrintPower();
-		if (this.p3.Augment!=null){
-			this.p3.PrintAugment();
-		}
-		this.p4.PrintPower();
-		if (this.p4.Augment!=null){
-			this.p4.PrintAugment();
-		}
-		System.out.println();
-	}
-	
-	void PrintPassive(){
-		System.out.print(this.PassiveName);
-		System.out.println(" "+Tags);
-		System.out.println(this.PassiveDescription);
 	}
 }
